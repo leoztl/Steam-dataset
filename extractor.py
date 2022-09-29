@@ -195,6 +195,12 @@ class detailExtractor(appidExtractor):
         super().__init__(name, interval)
         appidpath = os.path.join(os.getcwd(), "appid.csv")
         self.appid_df = pd.read_csv(appidpath)
+        self.check_null_response = False
+        if parseID == 0:
+            self.check_null_response = True
+            print("About to request Steam API")
+        else:
+            print("About to request Steam Spy API")
         parselist = [self.parseSteam, self.parseSteamSpy]
         writerlist = [self.writeSteam, self.writeSteamSpy]
         self.parse = parselist[parseID]
@@ -203,8 +209,15 @@ class detailExtractor(appidExtractor):
         self.Null_response = {}
 
     def parseSteamSpy(self, appid):
-
-        return
+        '''
+        parse SteamSpy API to request app detail
+        -- appid: string
+        -- return: dict
+        '''
+        url = "https://steamspy.com/api.php"
+        parameters = {"request": "appdetails", "appid": appid}
+        data = query(url, parameters, self.interval, 3, False)
+        return data
 
     def parseSteam(self, appid):
         '''
@@ -226,7 +239,12 @@ class detailExtractor(appidExtractor):
                 writer.writerow(detail_dict)
         return
 
-    def writeSteamSpy(self):
+    def writeSteamSpy(self,data_batch):
+        with open(self.csvpath, mode='a', newline='',encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(
+                csvfile, fieldnames=self.fieldnames, extrasaction='ignore')
+            for data in data_batch:
+                writer.writerow(data)
         return
 
     def process_batch(self, start, end):
@@ -243,21 +261,22 @@ class detailExtractor(appidExtractor):
             appid_batch.append(row['appid'])
         for appid in appid_batch:
             response = self.parse(appid)
-            if not list(response.values())[0]['success']:
-                response = self.Null_response
+            # check if response is false for Steam API
+            if self.check_null_response:
+                if not list(response.values())[0]['success']:
+                    response = self.Null_response
             data_batch.append(response)
             time.sleep(1)
         print("successfully request detail {} to {}".format(start, end))
         return data_batch
-    
+
     def get_Steam_Null_response(self):
         Null_data = {}
         for key in self.fieldnames:
             Null_data[key] = "NaN"
-        Null_response = {'NaN':{'success': True,'data':Null_data}}
+        Null_response = {'NaN': {'success': True, 'data': Null_data}}
         self.Null_response = Null_response
         return
-        
 
     def run(self):
         '''
@@ -266,7 +285,7 @@ class detailExtractor(appidExtractor):
         if len(self.fieldnames) == 0:
             # if the fieldnames are not set, raise
             raise ValueError("fieldnames cannot be None")
-        self.get_Steam_Null_response()
+        #self.get_Steam_Null_response()
         self.initialize()
         proceed = True
         length = self.appid_df.shape[0]
@@ -282,3 +301,4 @@ class detailExtractor(appidExtractor):
             self.set_trace(end+1)
 
         return
+

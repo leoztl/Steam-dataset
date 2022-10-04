@@ -7,6 +7,6 @@ steamspy_columns = [
     'languages', 'genre', 'ccu', 'tags'
 ]
 
-SteamSpyAppDetail = extractor.detailExtractor("SteamSpyAppDetail",1,1,100)
+SteamSpyAppDetail = extractor.detailExtractor("SteamSpyAppDetail",1,1,10)
 SteamSpyAppDetail.set_fieldnames(steamspy_columns)
 SteamSpyAppDetail.run()

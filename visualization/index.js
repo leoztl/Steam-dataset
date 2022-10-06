@@ -13,18 +13,18 @@ function ForceGraph({
     nodeStroke = "#fff", // node stroke color
     nodeStrokeWidth = 1.5, // node stroke width, in pixels
     nodeStrokeOpacity = 1, // node stroke opacity
-    nodeRadius = 5, // node radius, in pixels
+    nodeRadius = 10, // node radius, in pixels
     nodeStrength,
     linkSource = ({ source }) => source, // given d in links, returns a node identifier string
     linkTarget = ({ target }) => target, // given d in links, returns a node identifier string
     linkStroke = "#999", // link stroke color
     linkStrokeOpacity = 0.6, // link stroke opacity
-    linkStrokeWidth = 1.5, // given d in links, returns a stroke width in pixels
+    linkStrokeWidth = 0.2, // given d in links, returns a stroke width in pixels
     linkStrokeLinecap = "round", // link stroke linecap
     linkStrength,
     colors = d3.schemeTableau10, // an array of color strings, for the node groups
-    width = 640, // outer width, in pixels
-    height = 400, // outer height, in pixels
+    width = 1000, // outer width, in pixels
+    height = 1000, // outer height, in pixels
     invalidation // when this promise resolves, stop the simulation
 } = {}) {
     // Compute values.
@@ -96,15 +96,16 @@ function ForceGraph({
     }
 
     function ticked() {
+        factor = 3
         link
-            .attr("x1", d => d.source.x)
-            .attr("y1", d => d.source.y)
-            .attr("x2", d => d.target.x)
-            .attr("y2", d => d.target.y);
+            .attr("x1", d => factor*d.source.x)
+            .attr("y1", d => factor*d.source.y)
+            .attr("x2", d => factor*d.target.x)
+            .attr("y2", d => factor*d.target.y);
 
         node
-            .attr("cx", d => d.x)
-            .attr("cy", d => d.y);
+            .attr("cx", d => factor*d.x)
+            .attr("cy", d => factor*d.y);
     }
 
     function drag(simulation) {
@@ -133,13 +134,13 @@ function ForceGraph({
 
     return Object.assign(svg.node(), { scales: { color } });
 };
-d3.json("miserables.json").then(data => {
+d3.json("vis1.json").then(data => {
     chart = ForceGraph(data, {
         nodeId: (d) => d.id,
         nodeGroup: (d) => d.group,
         linkStrokeWidth: (l) => Math.sqrt(l.value),
-        width: 1000,
-        height: 600,
+        width: 1400,
+        height: 1200,
         /* invalidation, // a promise to stop the simulation when the cell is re-run */
     })
 });

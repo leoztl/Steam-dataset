@@ -6,7 +6,7 @@ const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 const mainGroup = svg.append("g").attr("transform","translate("+margin.left+","+margin.top+")").attr("id","mainGroup");
 
-d3.csv("miserables.json").then(data => {
+d3.csv("data.csv").then(data => {
     //console.log(data);
     data.forEach(function(d){
         //d.Year = d3.timeParse("%Y")(d.Year);

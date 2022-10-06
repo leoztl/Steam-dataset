@@ -1,0 +1,2126 @@
+{
+    "nodes": [
+        {
+            "id": "Free to Play",
+            "group": 1
+        },
+        {
+            "id": "Multiplayer",
+            "group": 2
+        },
+        {
+            "id": "Strategy",
+            "group": 3
+        },
+        {
+            "id": "Action",
+            "group": 4
+        },
+        {
+            "id": "Online Co-Op",
+            "group": 5
+        },
+        {
+            "id": "PvP",
+            "group": 6
+        },
+        {
+            "id": "Difficult",
+            "group": 7
+        },
+        {
+            "id": "Co-op",
+            "group": 8
+        },
+        {
+            "id": "Fantasy",
+            "group": 9
+        },
+        {
+            "id": "RPG",
+            "group": 10
+        },
+        {
+            "id": "Character Customization",
+            "group": 11
+        },
+        {
+            "id": "Replay Value",
+            "group": 12
+        },
+        {
+            "id": "Action RPG",
+            "group": 13
+        },
+        {
+            "id": "Simulation",
+            "group": 14
+        },
+        {
+            "id": "FPS",
+            "group": 15
+        },
+        {
+            "id": "Shooter",
+            "group": 16
+        },
+        {
+            "id": "Tactical",
+            "group": 17
+        },
+        {
+            "id": "First-Person",
+            "group": 18
+        },
+        {
+            "id": "War",
+            "group": 19
+        },
+        {
+            "id": "Realistic",
+            "group": 20
+        },
+        {
+            "id": "Fast-Paced",
+            "group": 21
+        },
+        {
+            "id": "Massively Multiplayer",
+            "group": 22
+        },
+        {
+            "id": "Open World",
+            "group": 23
+        },
+        {
+            "id": "Adventure",
+            "group": 24
+        },
+        {
+            "id": "PvE",
+            "group": 25
+        },
+        {
+            "id": "Walking Simulator",
+            "group": 26
+        },
+        {
+            "id": "Crafting",
+            "group": 27
+        },
+        {
+            "id": "Third Person",
+            "group": 28
+        },
+        {
+            "id": "Sandbox",
+            "group": 29
+        },
+        {
+            "id": "Violent",
+            "group": 30
+        },
+        {
+            "id": "Sexual Content",
+            "group": 31
+        },
+        {
+            "id": "Funny",
+            "group": 32
+        },
+        {
+            "id": "Cartoony",
+            "group": 33
+        },
+        {
+            "id": "Comedy",
+            "group": 34
+        },
+        {
+            "id": "Cartoon",
+            "group": 35
+        },
+        {
+            "id": "Survival",
+            "group": 36
+        },
+        {
+            "id": "Sci-fi",
+            "group": 37
+        },
+        {
+            "id": "Zombies",
+            "group": 38
+        },
+        {
+            "id": "Singleplayer",
+            "group": 39
+        },
+        {
+            "id": "Indie",
+            "group": 40
+        },
+        {
+            "id": "Casual",
+            "group": 41
+        },
+        {
+            "id": "Atmospheric",
+            "group": 42
+        },
+        {
+            "id": "Mature",
+            "group": 43
+        },
+        {
+            "id": "Racing",
+            "group": 44
+        },
+        {
+            "id": "Great Soundtrack",
+            "group": 45
+        },
+        {
+            "id": "Horror",
+            "group": 46
+        },
+        {
+            "id": "Gore",
+            "group": 47
+        },
+        {
+            "id": "Survival Horror",
+            "group": 48
+        },
+        {
+            "id": "Local Co-Op",
+            "group": 49
+        },
+        {
+            "id": "Space",
+            "group": 50
+        },
+        {
+            "id": "Hack and Slash",
+            "group": 51
+        },
+        {
+            "id": "Isometric",
+            "group": 52
+        },
+        {
+            "id": "2D",
+            "group": 53
+        },
+        {
+            "id": "Pixel Graphics",
+            "group": 54
+        },
+        {
+            "id": "Building",
+            "group": 55
+        },
+        {
+            "id": "Exploration",
+            "group": 56
+        },
+        {
+            "id": "Platformer",
+            "group": 57
+        },
+        {
+            "id": "Physics",
+            "group": 58
+        },
+        {
+            "id": "2D Platformer",
+            "group": 59
+        },
+        {
+            "id": "Local Multiplayer",
+            "group": 60
+        },
+        {
+            "id": "Family Friendly",
+            "group": 61
+        },
+        {
+            "id": "Controller",
+            "group": 62
+        },
+        {
+            "id": "Combat",
+            "group": 63
+        },
+        {
+            "id": "VR",
+            "group": 64
+        },
+        {
+            "id": "Historical",
+            "group": 65
+        },
+        {
+            "id": "Relaxing",
+            "group": 66
+        },
+        {
+            "id": "Dark Fantasy",
+            "group": 67
+        },
+        {
+            "id": "3D",
+            "group": 68
+        },
+        {
+            "id": "Colorful",
+            "group": 69
+        },
+        {
+            "id": "Top-Down",
+            "group": 70
+        },
+        {
+            "id": "Short",
+            "group": 71
+        },
+        {
+            "id": "Classic",
+            "group": 72
+        },
+        {
+            "id": "Futuristic",
+            "group": 73
+        },
+        {
+            "id": "Story Rich",
+            "group": 74
+        },
+        {
+            "id": "Dungeon Crawler",
+            "group": 75
+        },
+        {
+            "id": "Point & Click",
+            "group": 76
+        },
+        {
+            "id": "Stealth",
+            "group": 77
+        },
+        {
+            "id": "Cute",
+            "group": 78
+        },
+        {
+            "id": "3D Platformer",
+            "group": 79
+        },
+        {
+            "id": "Nudity",
+            "group": 80
+        },
+        {
+            "id": "Psychological Horror",
+            "group": 81
+        },
+        {
+            "id": "Dark",
+            "group": 82
+        },
+        {
+            "id": "Mystery",
+            "group": 83
+        },
+        {
+            "id": "Puzzle",
+            "group": 84
+        },
+        {
+            "id": "Hidden Object",
+            "group": 85
+        },
+        {
+            "id": "Romance",
+            "group": 86
+        },
+        {
+            "id": "Memes",
+            "group": 87
+        },
+        {
+            "id": "Choices Matter",
+            "group": 88
+        },
+        {
+            "id": "Medieval",
+            "group": 89
+        },
+        {
+            "id": "Multiple Endings",
+            "group": 90
+        },
+        {
+            "id": "Magic",
+            "group": 91
+        },
+        {
+            "id": "Dating Sim",
+            "group": 92
+        },
+        {
+            "id": "Management",
+            "group": 93
+        },
+        {
+            "id": "Sports",
+            "group": 94
+        },
+        {
+            "id": "Old School",
+            "group": 95
+        },
+        {
+            "id": "Puzzle-Platformer",
+            "group": 96
+        },
+        {
+            "id": "Female Protagonist",
+            "group": 97
+        },
+        {
+            "id": "Action-Adventure",
+            "group": 98
+        },
+        {
+            "id": "Rogue-lite",
+            "group": 99
+        },
+        {
+            "id": "JRPG",
+            "group": 100
+        },
+        {
+            "id": "Arcade",
+            "group": 101
+        },
+        {
+            "id": "Turn-Based Strategy",
+            "group": 102
+        },
+        {
+            "id": "Turn-Based",
+            "group": 103
+        },
+        {
+            "id": "Drama",
+            "group": 104
+        },
+        {
+            "id": "Choose Your Own Adventure",
+            "group": 105
+        },
+        {
+            "id": "Hand-drawn",
+            "group": 106
+        },
+        {
+            "id": "Retro",
+            "group": 107
+        },
+        {
+            "id": "Surreal",
+            "group": 108
+        },
+        {
+            "id": "Stylized",
+            "group": 109
+        },
+        {
+            "id": "Logic",
+            "group": 110
+        },
+        {
+            "id": "Side Scroller",
+            "group": 111
+        },
+        {
+            "id": "Procedural Generation",
+            "group": 112
+        },
+        {
+            "id": "Turn-Based Tactics",
+            "group": 113
+        },
+        {
+            "id": "Board Game",
+            "group": 114
+        },
+        {
+            "id": "Resource Management",
+            "group": 115
+        },
+        {
+            "id": "Anime",
+            "group": 116
+        },
+        {
+            "id": "Linear",
+            "group": 117
+        },
+        {
+            "id": "Rogue-like",
+            "group": 118
+        },
+        {
+            "id": "Clicker",
+            "group": 119
+        },
+        {
+            "id": "Education",
+            "group": 120
+        },
+        {
+            "id": "Bullet Hell",
+            "group": 121
+        },
+        {
+            "id": "Emotional",
+            "group": 122
+        },
+        {
+            "id": "Turn-Based Combat",
+            "group": 123
+        },
+        {
+            "id": "Minimalist",
+            "group": 124
+        },
+        {
+            "id": "Visual Novel",
+            "group": 125
+        },
+        {
+            "id": "Score Attack",
+            "group": 126
+        },
+        {
+            "id": "Interactive Fiction",
+            "group": 127
+        },
+        {
+            "id": "Text-Based",
+            "group": 128
+        },
+        {
+            "id": "RPGMaker",
+            "group": 129
+        },
+        {
+            "id": "Abstract",
+            "group": 130
+        }
+    ],
+    "links": [
+        {
+            "source": "Free to Play",
+            "target": "Indie",
+            "value": 7.797524890667162
+        },
+        {
+            "source": "Multiplayer",
+            "target": "Co-op",
+            "value": 5.2340187959430535
+        },
+        {
+            "source": "Multiplayer",
+            "target": "Singleplayer",
+            "value": 9.812040569461244
+        },
+        {
+            "source": "Strategy",
+            "target": "Multiplayer",
+            "value": 5.559691076579511
+        },
+        {
+            "source": "Strategy",
+            "target": "Action",
+            "value": 6.746068670326603
+        },
+        {
+            "source": "Strategy",
+            "target": "Fantasy",
+            "value": 5.164231878663813
+        },
+        {
+            "source": "Strategy",
+            "target": "RPG",
+            "value": 5.2665860240067
+        },
+        {
+            "source": "Strategy",
+            "target": "Simulation",
+            "value": 8.555876058434912
+        },
+        {
+            "source": "Strategy",
+            "target": "Tactical",
+            "value": 5.596910765795106
+        },
+        {
+            "source": "Strategy",
+            "target": "Adventure",
+            "value": 7.015911417139667
+        },
+        {
+            "source": "Strategy",
+            "target": "Singleplayer",
+            "value": 18.96808411649763
+        },
+        {
+            "source": "Strategy",
+            "target": "Indie",
+            "value": 16.655810923978784
+        },
+        {
+            "source": "Strategy",
+            "target": "Casual",
+            "value": 8.374430073508886
+        },
+        {
+            "source": "Strategy",
+            "target": "2D",
+            "value": 10.067925932818461
+        },
+        {
+            "source": "Strategy",
+            "target": "Puzzle",
+            "value": 5.475946775844422
+        },
+        {
+            "source": "Strategy",
+            "target": "Turn-Based Strategy",
+            "value": 5.18749418442356
+        },
+        {
+            "source": "Action",
+            "target": "Multiplayer",
+            "value": 11.007723085512236
+        },
+        {
+            "source": "Action",
+            "target": "Strategy",
+            "value": 7.267144319344933
+        },
+        {
+            "source": "Action",
+            "target": "Difficult",
+            "value": 8.514003908067368
+        },
+        {
+            "source": "Action",
+            "target": "Co-op",
+            "value": 6.7832883595421976
+        },
+        {
+            "source": "Action",
+            "target": "Fantasy",
+            "value": 7.630036289196986
+        },
+        {
+            "source": "Action",
+            "target": "RPG",
+            "value": 9.32353214850656
+        },
+        {
+            "source": "Action",
+            "target": "Simulation",
+            "value": 8.523308830371267
+        },
+        {
+            "source": "Action",
+            "target": "FPS",
+            "value": 7.788219968363263
+        },
+        {
+            "source": "Action",
+            "target": "Shooter",
+            "value": 13.580534102540243
+        },
+        {
+            "source": "Action",
+            "target": "First-Person",
+            "value": 9.421233832697498
+        },
+        {
+            "source": "Action",
+            "target": "Open World",
+            "value": 5.122359728296269
+        },
+        {
+            "source": "Action",
+            "target": "Adventure",
+            "value": 30.47362054526845
+        },
+        {
+            "source": "Action",
+            "target": "Third Person",
+            "value": 6.806550665301944
+        },
+        {
+            "source": "Action",
+            "target": "Violent",
+            "value": 8.365125151204987
+        },
+        {
+            "source": "Action",
+            "target": "Funny",
+            "value": 7.67190843956453
+        },
+        {
+            "source": "Action",
+            "target": "Comedy",
+            "value": 5.047920349865079
+        },
+        {
+            "source": "Action",
+            "target": "Survival",
+            "value": 6.099376570205639
+        },
+        {
+            "source": "Action",
+            "target": "Sci-fi",
+            "value": 8.56983344189076
+        },
+        {
+            "source": "Action",
+            "target": "Singleplayer",
+            "value": 35.889085326137526
+        },
+        {
+            "source": "Action",
+            "target": "Indie",
+            "value": 45.445240532241556
+        },
+        {
+            "source": "Action",
+            "target": "Casual",
+            "value": 20.708104587326694
+        },
+        {
+            "source": "Action",
+            "target": "Atmospheric",
+            "value": 12.263887596538568
+        },
+        {
+            "source": "Action",
+            "target": "Great Soundtrack",
+            "value": 8.188331627430912
+        },
+        {
+            "source": "Action",
+            "target": "Horror",
+            "value": 6.564622685400577
+        },
+        {
+            "source": "Action",
+            "target": "Gore",
+            "value": 7.485809993486554
+        },
+        {
+            "source": "Action",
+            "target": "2D",
+            "value": 16.432492788685217
+        },
+        {
+            "source": "Action",
+            "target": "Pixel Graphics",
+            "value": 11.747464408672188
+        },
+        {
+            "source": "Action",
+            "target": "Exploration",
+            "value": 6.1924257932446265
+        },
+        {
+            "source": "Action",
+            "target": "Platformer",
+            "value": 11.552061040290313
+        },
+        {
+            "source": "Action",
+            "target": "Family Friendly",
+            "value": 5.001395738345585
+        },
+        {
+            "source": "Action",
+            "target": "Controller",
+            "value": 5.815576439936727
+        },
+        {
+            "source": "Action",
+            "target": "Combat",
+            "value": 6.076114264445892
+        },
+        {
+            "source": "Action",
+            "target": "VR",
+            "value": 6.4297013119940445
+        },
+        {
+            "source": "Action",
+            "target": "3D",
+            "value": 8.835023727551874
+        },
+        {
+            "source": "Action",
+            "target": "Colorful",
+            "value": 8.49539406345957
+        },
+        {
+            "source": "Action",
+            "target": "Story Rich",
+            "value": 6.722806364566856
+        },
+        {
+            "source": "Action",
+            "target": "Cute",
+            "value": 5.838838745696473
+        },
+        {
+            "source": "Action",
+            "target": "Puzzle",
+            "value": 6.327347166651158
+        },
+        {
+            "source": "Action",
+            "target": "Action-Adventure",
+            "value": 8.58379082534661
+        },
+        {
+            "source": "Action",
+            "target": "Arcade",
+            "value": 12.217362985019076
+        },
+        {
+            "source": "Action",
+            "target": "Retro",
+            "value": 9.802735647157345
+        },
+        {
+            "source": "Difficult",
+            "target": "Singleplayer",
+            "value": 6.7972457429980455
+        },
+        {
+            "source": "Fantasy",
+            "target": "Singleplayer",
+            "value": 11.091467386247325
+        },
+        {
+            "source": "RPG",
+            "target": "Strategy",
+            "value": 5.387550013957383
+        },
+        {
+            "source": "RPG",
+            "target": "Action",
+            "value": 6.508793151577184
+        },
+        {
+            "source": "RPG",
+            "target": "Fantasy",
+            "value": 9.672466734902764
+        },
+        {
+            "source": "RPG",
+            "target": "Adventure",
+            "value": 11.445054433795478
+        },
+        {
+            "source": "RPG",
+            "target": "Singleplayer",
+            "value": 15.916069600818833
+        },
+        {
+            "source": "RPG",
+            "target": "Indie",
+            "value": 14.05973760119103
+        },
+        {
+            "source": "RPG",
+            "target": "Casual",
+            "value": 5.238671257095003
+        },
+        {
+            "source": "RPG",
+            "target": "2D",
+            "value": 9.449148599609194
+        },
+        {
+            "source": "RPG",
+            "target": "Pixel Graphics",
+            "value": 5.7457895226574855
+        },
+        {
+            "source": "RPG",
+            "target": "Story Rich",
+            "value": 7.695170745324277
+        },
+        {
+            "source": "RPG",
+            "target": "JRPG",
+            "value": 5.020005582953383
+        },
+        {
+            "source": "RPG",
+            "target": "Anime",
+            "value": 6.4297013119940445
+        },
+        {
+            "source": "Simulation",
+            "target": "Strategy",
+            "value": 6.480878384665488
+        },
+        {
+            "source": "Simulation",
+            "target": "Adventure",
+            "value": 5.624825532706803
+        },
+        {
+            "source": "Simulation",
+            "target": "Singleplayer",
+            "value": 18.232995254489627
+        },
+        {
+            "source": "Simulation",
+            "target": "Indie",
+            "value": 11.919605471294314
+        },
+        {
+            "source": "Simulation",
+            "target": "Casual",
+            "value": 6.773983437238298
+        },
+        {
+            "source": "Simulation",
+            "target": "Atmospheric",
+            "value": 5.5876058434912075
+        },
+        {
+            "source": "Simulation",
+            "target": "2D",
+            "value": 5.527123848515865
+        },
+        {
+            "source": "Simulation",
+            "target": "3D",
+            "value": 5.0758351167767755
+        },
+        {
+            "source": "FPS",
+            "target": "First-Person",
+            "value": 6.0342421140783475
+        },
+        {
+            "source": "FPS",
+            "target": "Singleplayer",
+            "value": 5.113054805992371
+        },
+        {
+            "source": "Shooter",
+            "target": "Singleplayer",
+            "value": 7.871964269098353
+        },
+        {
+            "source": "First-Person",
+            "target": "Singleplayer",
+            "value": 10.97050339629664
+        },
+        {
+            "source": "First-Person",
+            "target": "Indie",
+            "value": 5.145622034056015
+        },
+        {
+            "source": "First-Person",
+            "target": "Atmospheric",
+            "value": 6.4948357681213365
+        },
+        {
+            "source": "Open World",
+            "target": "Singleplayer",
+            "value": 5.624825532706803
+        },
+        {
+            "source": "Adventure",
+            "target": "Strategy",
+            "value": 6.718153903414907
+        },
+        {
+            "source": "Adventure",
+            "target": "Action",
+            "value": 12.445333581464595
+        },
+        {
+            "source": "Adventure",
+            "target": "Difficult",
+            "value": 5.396854936261282
+        },
+        {
+            "source": "Adventure",
+            "target": "Fantasy",
+            "value": 10.133060388945752
+        },
+        {
+            "source": "Adventure",
+            "target": "RPG",
+            "value": 12.40346143109705
+        },
+        {
+            "source": "Adventure",
+            "target": "Simulation",
+            "value": 8.50004652461152
+        },
+        {
+            "source": "Adventure",
+            "target": "First-Person",
+            "value": 8.462826835395925
+        },
+        {
+            "source": "Adventure",
+            "target": "Open World",
+            "value": 5.280543407462548
+        },
+        {
+            "source": "Adventure",
+            "target": "Third Person",
+            "value": 5.7457895226574855
+        },
+        {
+            "source": "Adventure",
+            "target": "Violent",
+            "value": 6.001674886014702
+        },
+        {
+            "source": "Adventure",
+            "target": "Funny",
+            "value": 8.04410533172048
+        },
+        {
+            "source": "Adventure",
+            "target": "Comedy",
+            "value": 6.0342421140783475
+        },
+        {
+            "source": "Adventure",
+            "target": "Survival",
+            "value": 5.122359728296269
+        },
+        {
+            "source": "Adventure",
+            "target": "Sci-fi",
+            "value": 5.624825532706803
+        },
+        {
+            "source": "Adventure",
+            "target": "Singleplayer",
+            "value": 40.35544803200894
+        },
+        {
+            "source": "Adventure",
+            "target": "Indie",
+            "value": 37.135944914859955
+        },
+        {
+            "source": "Adventure",
+            "target": "Casual",
+            "value": 19.796222201544616
+        },
+        {
+            "source": "Adventure",
+            "target": "Atmospheric",
+            "value": 17.59095561552061
+        },
+        {
+            "source": "Adventure",
+            "target": "Great Soundtrack",
+            "value": 9.035079557085698
+        },
+        {
+            "source": "Adventure",
+            "target": "Horror",
+            "value": 9.742253652182004
+        },
+        {
+            "source": "Adventure",
+            "target": "Gore",
+            "value": 5.350330324741789
+        },
+        {
+            "source": "Adventure",
+            "target": "2D",
+            "value": 18.64706429701312
+        },
+        {
+            "source": "Adventure",
+            "target": "Pixel Graphics",
+            "value": 9.532892900344283
+        },
+        {
+            "source": "Adventure",
+            "target": "Exploration",
+            "value": 12.53838280450358
+        },
+        {
+            "source": "Adventure",
+            "target": "Platformer",
+            "value": 9.384014143481902
+        },
+        {
+            "source": "Adventure",
+            "target": "Family Friendly",
+            "value": 6.131943798269284
+        },
+        {
+            "source": "Adventure",
+            "target": "3D",
+            "value": 8.006885642504885
+        },
+        {
+            "source": "Adventure",
+            "target": "Colorful",
+            "value": 8.234856238950405
+        },
+        {
+            "source": "Adventure",
+            "target": "Story Rich",
+            "value": 16.418535405229367
+        },
+        {
+            "source": "Adventure",
+            "target": "Point & Click",
+            "value": 8.448869451940077
+        },
+        {
+            "source": "Adventure",
+            "target": "Cute",
+            "value": 8.662882664929748
+        },
+        {
+            "source": "Adventure",
+            "target": "Psychological Horror",
+            "value": 5.531776309667815
+        },
+        {
+            "source": "Adventure",
+            "target": "Dark",
+            "value": 6.15985856518098
+        },
+        {
+            "source": "Adventure",
+            "target": "Mystery",
+            "value": 8.132502093607519
+        },
+        {
+            "source": "Adventure",
+            "target": "Puzzle",
+            "value": 14.925095375453616
+        },
+        {
+            "source": "Adventure",
+            "target": "Hidden Object",
+            "value": 5.689959988834093
+        },
+        {
+            "source": "Adventure",
+            "target": "Female Protagonist",
+            "value": 8.453521913092025
+        },
+        {
+            "source": "Adventure",
+            "target": "Action-Adventure",
+            "value": 9.067646785149345
+        },
+        {
+            "source": "Adventure",
+            "target": "Retro",
+            "value": 7.5323346050060485
+        },
+        {
+            "source": "Adventure",
+            "target": "Anime",
+            "value": 7.839397041034707
+        },
+        {
+            "source": "Adventure",
+            "target": "Visual Novel",
+            "value": 5.876058434912068
+        },
+        {
+            "source": "Third Person",
+            "target": "Singleplayer",
+            "value": 5.56899599888341
+        },
+        {
+            "source": "Funny",
+            "target": "Singleplayer",
+            "value": 8.444216990788126
+        },
+        {
+            "source": "Comedy",
+            "target": "Singleplayer",
+            "value": 6.029589652926398
+        },
+        {
+            "source": "Survival",
+            "target": "Singleplayer",
+            "value": 5.373592630501536
+        },
+        {
+            "source": "Sci-fi",
+            "target": "Singleplayer",
+            "value": 7.867311807946403
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Action",
+            "value": 7.82078719642691
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Difficult",
+            "value": 6.950776961012376
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Fantasy",
+            "value": 5.703917372289942
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Adventure",
+            "value": 9.942309481715828
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Funny",
+            "value": 6.452963617753792
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Indie",
+            "value": 19.84274681306411
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Casual",
+            "value": 7.844049502186657
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Atmospheric",
+            "value": 12.240625290778823
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Great Soundtrack",
+            "value": 9.123476318972736
+        },
+        {
+            "source": "Singleplayer",
+            "target": "2D",
+            "value": 11.626500418721504
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Exploration",
+            "value": 6.0621568809900435
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Family Friendly",
+            "value": 6.46226854005769
+        },
+        {
+            "source": "Singleplayer",
+            "target": "3D",
+            "value": 6.09007164790174
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Colorful",
+            "value": 6.913557271796781
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Story Rich",
+            "value": 8.50004652461152
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Cute",
+            "value": 6.262212710523866
+        },
+        {
+            "source": "Singleplayer",
+            "target": "Puzzle",
+            "value": 5.769051828417233
+        },
+        {
+            "source": "Indie",
+            "target": "Multiplayer",
+            "value": 7.797524890667162
+        },
+        {
+            "source": "Indie",
+            "target": "Strategy",
+            "value": 11.617195496417605
+        },
+        {
+            "source": "Indie",
+            "target": "Action",
+            "value": 18.302782171768868
+        },
+        {
+            "source": "Indie",
+            "target": "Difficult",
+            "value": 11.635805341025403
+        },
+        {
+            "source": "Indie",
+            "target": "Fantasy",
+            "value": 7.955708569833442
+        },
+        {
+            "source": "Indie",
+            "target": "RPG",
+            "value": 10.514562203405601
+        },
+        {
+            "source": "Indie",
+            "target": "Simulation",
+            "value": 14.641295245184702
+        },
+        {
+            "source": "Indie",
+            "target": "Shooter",
+            "value": 5.71787475574579
+        },
+        {
+            "source": "Indie",
+            "target": "First-Person",
+            "value": 7.560249371917744
+        },
+        {
+            "source": "Indie",
+            "target": "Adventure",
+            "value": 26.849353307899882
+        },
+        {
+            "source": "Indie",
+            "target": "Violent",
+            "value": 7.774262584907415
+        },
+        {
+            "source": "Indie",
+            "target": "Funny",
+            "value": 9.728296268726156
+        },
+        {
+            "source": "Indie",
+            "target": "Comedy",
+            "value": 6.0202847306225
+        },
+        {
+            "source": "Indie",
+            "target": "Sci-fi",
+            "value": 7.1368754070903515
+        },
+        {
+            "source": "Indie",
+            "target": "Singleplayer",
+            "value": 50.0
+        },
+        {
+            "source": "Indie",
+            "target": "Casual",
+            "value": 35.57271796780497
+        },
+        {
+            "source": "Indie",
+            "target": "Atmospheric",
+            "value": 15.971899134642225
+        },
+        {
+            "source": "Indie",
+            "target": "Great Soundtrack",
+            "value": 11.859123476318972
+        },
+        {
+            "source": "Indie",
+            "target": "Horror",
+            "value": 9.016469712477901
+        },
+        {
+            "source": "Indie",
+            "target": "Gore",
+            "value": 6.4436586954498924
+        },
+        {
+            "source": "Indie",
+            "target": "2D",
+            "value": 23.01572531869359
+        },
+        {
+            "source": "Indie",
+            "target": "Pixel Graphics",
+            "value": 12.724481250581556
+        },
+        {
+            "source": "Indie",
+            "target": "Exploration",
+            "value": 7.611426444589188
+        },
+        {
+            "source": "Indie",
+            "target": "Platformer",
+            "value": 10.747185261003072
+        },
+        {
+            "source": "Indie",
+            "target": "Family Friendly",
+            "value": 8.555876058434912
+        },
+        {
+            "source": "Indie",
+            "target": "VR",
+            "value": 7.74634781799572
+        },
+        {
+            "source": "Indie",
+            "target": "Relaxing",
+            "value": 7.448590304270959
+        },
+        {
+            "source": "Indie",
+            "target": "3D",
+            "value": 5.3922024751093325
+        },
+        {
+            "source": "Indie",
+            "target": "Colorful",
+            "value": 8.179026705127013
+        },
+        {
+            "source": "Indie",
+            "target": "Short",
+            "value": 5.247976179398902
+        },
+        {
+            "source": "Indie",
+            "target": "Story Rich",
+            "value": 12.231320368474924
+        },
+        {
+            "source": "Indie",
+            "target": "Cute",
+            "value": 8.816413882944078
+        },
+        {
+            "source": "Indie",
+            "target": "Psychological Horror",
+            "value": 5.5364287708197635
+        },
+        {
+            "source": "Indie",
+            "target": "Puzzle",
+            "value": 18.45166092863125
+        },
+        {
+            "source": "Indie",
+            "target": "Female Protagonist",
+            "value": 8.211593933190658
+        },
+        {
+            "source": "Indie",
+            "target": "Arcade",
+            "value": 8.737322043360939
+        },
+        {
+            "source": "Indie",
+            "target": "Retro",
+            "value": 10.188889922769146
+        },
+        {
+            "source": "Indie",
+            "target": "Anime",
+            "value": 8.090629943239975
+        },
+        {
+            "source": "Indie",
+            "target": "Visual Novel",
+            "value": 5.34102540243789
+        },
+        {
+            "source": "Casual",
+            "target": "Multiplayer",
+            "value": 5.373592630501536
+        },
+        {
+            "source": "Casual",
+            "target": "Strategy",
+            "value": 12.836140318228342
+        },
+        {
+            "source": "Casual",
+            "target": "Action",
+            "value": 11.030985391271983
+        },
+        {
+            "source": "Casual",
+            "target": "Difficult",
+            "value": 5.331720480133991
+        },
+        {
+            "source": "Casual",
+            "target": "Fantasy",
+            "value": 7.095003256722807
+        },
+        {
+            "source": "Casual",
+            "target": "RPG",
+            "value": 6.2715176328277655
+        },
+        {
+            "source": "Casual",
+            "target": "Simulation",
+            "value": 15.42756117986415
+        },
+        {
+            "source": "Casual",
+            "target": "Adventure",
+            "value": 18.62845445240532
+        },
+        {
+            "source": "Casual",
+            "target": "Funny",
+            "value": 9.295617381594862
+        },
+        {
+            "source": "Casual",
+            "target": "Cartoony",
+            "value": 5.662045221922397
+        },
+        {
+            "source": "Casual",
+            "target": "Comedy",
+            "value": 5.6666976830743465
+        },
+        {
+            "source": "Casual",
+            "target": "Singleplayer",
+            "value": 41.760491299897645
+        },
+        {
+            "source": "Casual",
+            "target": "Indie",
+            "value": 34.74923234390993
+        },
+        {
+            "source": "Casual",
+            "target": "Atmospheric",
+            "value": 12.668651716758164
+        },
+        {
+            "source": "Casual",
+            "target": "Great Soundtrack",
+            "value": 5.555038615427561
+        },
+        {
+            "source": "Casual",
+            "target": "2D",
+            "value": 22.829626872615613
+        },
+        {
+            "source": "Casual",
+            "target": "Pixel Graphics",
+            "value": 8.081325020936076
+        },
+        {
+            "source": "Casual",
+            "target": "Exploration",
+            "value": 5.848143668000373
+        },
+        {
+            "source": "Casual",
+            "target": "Platformer",
+            "value": 6.178468409788778
+        },
+        {
+            "source": "Casual",
+            "target": "Family Friendly",
+            "value": 13.817809621289662
+        },
+        {
+            "source": "Casual",
+            "target": "VR",
+            "value": 6.117986414813437
+        },
+        {
+            "source": "Casual",
+            "target": "Relaxing",
+            "value": 12.18944821810738
+        },
+        {
+            "source": "Casual",
+            "target": "3D",
+            "value": 8.462826835395925
+        },
+        {
+            "source": "Casual",
+            "target": "Colorful",
+            "value": 14.72969200707174
+        },
+        {
+            "source": "Casual",
+            "target": "Story Rich",
+            "value": 8.299990695077696
+        },
+        {
+            "source": "Casual",
+            "target": "Point & Click",
+            "value": 6.057504419838095
+        },
+        {
+            "source": "Casual",
+            "target": "Cute",
+            "value": 12.840792779380292
+        },
+        {
+            "source": "Casual",
+            "target": "Puzzle",
+            "value": 19.04252349492882
+        },
+        {
+            "source": "Casual",
+            "target": "Hidden Object",
+            "value": 5.48990415930027
+        },
+        {
+            "source": "Casual",
+            "target": "Female Protagonist",
+            "value": 5.196799106727458
+        },
+        {
+            "source": "Casual",
+            "target": "Arcade",
+            "value": 10.29589652926398
+        },
+        {
+            "source": "Casual",
+            "target": "Retro",
+            "value": 6.150553642877082
+        },
+        {
+            "source": "Casual",
+            "target": "Stylized",
+            "value": 5.676002605378245
+        },
+        {
+            "source": "Casual",
+            "target": "Logic",
+            "value": 5.18749418442356
+        },
+        {
+            "source": "Casual",
+            "target": "Anime",
+            "value": 7.541639527309947
+        },
+        {
+            "source": "Casual",
+            "target": "Minimalist",
+            "value": 7.783567507211314
+        },
+        {
+            "source": "Casual",
+            "target": "Visual Novel",
+            "value": 5.020005582953383
+        },
+        {
+            "source": "Atmospheric",
+            "target": "Adventure",
+            "value": 6.024937191774448
+        },
+        {
+            "source": "Atmospheric",
+            "target": "Singleplayer",
+            "value": 16.120777891504606
+        },
+        {
+            "source": "Atmospheric",
+            "target": "Indie",
+            "value": 7.3229738531683255
+        },
+        {
+            "source": "Atmospheric",
+            "target": "Story Rich",
+            "value": 5.6341304550107
+        },
+        {
+            "source": "Horror",
+            "target": "First-Person",
+            "value": 5.052572811017028
+        },
+        {
+            "source": "Horror",
+            "target": "Singleplayer",
+            "value": 9.24909277007537
+        },
+        {
+            "source": "Horror",
+            "target": "Indie",
+            "value": 5.061877733320927
+        },
+        {
+            "source": "Horror",
+            "target": "Atmospheric",
+            "value": 6.7972457429980455
+        },
+        {
+            "source": "Horror",
+            "target": "Psychological Horror",
+            "value": 5.983065041406904
+        },
+        {
+            "source": "Gore",
+            "target": "Violent",
+            "value": 5.289848329766446
+        },
+        {
+            "source": "2D",
+            "target": "Action",
+            "value": 6.043547036382247
+        },
+        {
+            "source": "2D",
+            "target": "Fantasy",
+            "value": 6.978691727924072
+        },
+        {
+            "source": "2D",
+            "target": "Adventure",
+            "value": 6.741416209174654
+        },
+        {
+            "source": "2D",
+            "target": "Funny",
+            "value": 6.597189913464223
+        },
+        {
+            "source": "2D",
+            "target": "Singleplayer",
+            "value": 30.07816134735275
+        },
+        {
+            "source": "2D",
+            "target": "Indie",
+            "value": 15.609007164790173
+        },
+        {
+            "source": "2D",
+            "target": "Casual",
+            "value": 6.792593281846096
+        },
+        {
+            "source": "2D",
+            "target": "Atmospheric",
+            "value": 8.593095747650507
+        },
+        {
+            "source": "2D",
+            "target": "Pixel Graphics",
+            "value": 11.41713966688378
+        },
+        {
+            "source": "2D",
+            "target": "Family Friendly",
+            "value": 6.983344189076021
+        },
+        {
+            "source": "2D",
+            "target": "Relaxing",
+            "value": 5.931887968735461
+        },
+        {
+            "source": "2D",
+            "target": "Colorful",
+            "value": 10.551781892621197
+        },
+        {
+            "source": "2D",
+            "target": "Top-Down",
+            "value": 5.1549269563599145
+        },
+        {
+            "source": "2D",
+            "target": "Story Rich",
+            "value": 6.6251046803759195
+        },
+        {
+            "source": "2D",
+            "target": "Cute",
+            "value": 9.644551967991069
+        },
+        {
+            "source": "2D",
+            "target": "Retro",
+            "value": 8.286033311621848
+        },
+        {
+            "source": "2D",
+            "target": "Minimalist",
+            "value": 5.508514003908068
+        },
+        {
+            "source": "Pixel Graphics",
+            "target": "Singleplayer",
+            "value": 14.976272448125059
+        },
+        {
+            "source": "Pixel Graphics",
+            "target": "Indie",
+            "value": 7.481157532334605
+        },
+        {
+            "source": "Pixel Graphics",
+            "target": "2D",
+            "value": 8.802456499488228
+        },
+        {
+            "source": "Pixel Graphics",
+            "target": "Retro",
+            "value": 7.657951056108682
+        },
+        {
+            "source": "Exploration",
+            "target": "Singleplayer",
+            "value": 10.23076207313669
+        },
+        {
+            "source": "Exploration",
+            "target": "Indie",
+            "value": 5.429422164324928
+        },
+        {
+            "source": "Exploration",
+            "target": "Atmospheric",
+            "value": 6.913557271796781
+        },
+        {
+            "source": "Exploration",
+            "target": "3D",
+            "value": 5.610868149250954
+        },
+        {
+            "source": "Platformer",
+            "target": "Singleplayer",
+            "value": 11.20777891504606
+        },
+        {
+            "source": "Platformer",
+            "target": "Indie",
+            "value": 6.1133339536614875
+        },
+        {
+            "source": "Platformer",
+            "target": "2D",
+            "value": 10.784404950218665
+        },
+        {
+            "source": "Platformer",
+            "target": "Pixel Graphics",
+            "value": 5.56899599888341
+        },
+        {
+            "source": "Physics",
+            "target": "Singleplayer",
+            "value": 5.992369963710803
+        },
+        {
+            "source": "2D Platformer",
+            "target": "Singleplayer",
+            "value": 7.104308179026705
+        },
+        {
+            "source": "2D Platformer",
+            "target": "2D",
+            "value": 8.05341025402438
+        },
+        {
+            "source": "Family Friendly",
+            "target": "Singleplayer",
+            "value": 8.87224341676747
+        },
+        {
+            "source": "Relaxing",
+            "target": "Singleplayer",
+            "value": 10.109798083186005
+        },
+        {
+            "source": "Relaxing",
+            "target": "Indie",
+            "value": 5.001395738345585
+        },
+        {
+            "source": "3D",
+            "target": "Singleplayer",
+            "value": 12.54768772680748
+        },
+        {
+            "source": "3D",
+            "target": "Indie",
+            "value": 7.504419838094352
+        },
+        {
+            "source": "3D",
+            "target": "Colorful",
+            "value": 5.057225272168978
+        },
+        {
+            "source": "Colorful",
+            "target": "Singleplayer",
+            "value": 12.091746533916442
+        },
+        {
+            "source": "Colorful",
+            "target": "Indie",
+            "value": 6.676281753047363
+        },
+        {
+            "source": "Colorful",
+            "target": "Family Friendly",
+            "value": 5.759746906113334
+        },
+        {
+            "source": "Top-Down",
+            "target": "Singleplayer",
+            "value": 5.480599236996371
+        },
+        {
+            "source": "Story Rich",
+            "target": "Adventure",
+            "value": 6.5739276077044755
+        },
+        {
+            "source": "Story Rich",
+            "target": "Singleplayer",
+            "value": 14.822741230110728
+        },
+        {
+            "source": "Story Rich",
+            "target": "Indie",
+            "value": 6.006327347166652
+        },
+        {
+            "source": "Story Rich",
+            "target": "Atmospheric",
+            "value": 7.778915046059365
+        },
+        {
+            "source": "Point & Click",
+            "target": "Singleplayer",
+            "value": 7.1368754070903515
+        },
+        {
+            "source": "Point & Click",
+            "target": "2D",
+            "value": 5.289848329766446
+        },
+        {
+            "source": "Cute",
+            "target": "Funny",
+            "value": 5.080487577928724
+        },
+        {
+            "source": "Cute",
+            "target": "Singleplayer",
+            "value": 12.436028659160696
+        },
+        {
+            "source": "Cute",
+            "target": "Indie",
+            "value": 6.666976830743463
+        },
+        {
+            "source": "Cute",
+            "target": "Family Friendly",
+            "value": 5.2340187959430535
+        },
+        {
+            "source": "Cute",
+            "target": "Colorful",
+            "value": 6.680934214199312
+        },
+        {
+            "source": "Mystery",
+            "target": "Singleplayer",
+            "value": 5.676002605378245
+        },
+        {
+            "source": "Puzzle",
+            "target": "Adventure",
+            "value": 5.885363357215967
+        },
+        {
+            "source": "Puzzle",
+            "target": "Singleplayer",
+            "value": 22.978505629477993
+        },
+        {
+            "source": "Puzzle",
+            "target": "Indie",
+            "value": 12.0219596166372
+        },
+        {
+            "source": "Puzzle",
+            "target": "Casual",
+            "value": 7.988275797897088
+        },
+        {
+            "source": "Puzzle",
+            "target": "Atmospheric",
+            "value": 10.412208058062715
+        },
+        {
+            "source": "Puzzle",
+            "target": "2D",
+            "value": 13.952730994696195
+        },
+        {
+            "source": "Puzzle",
+            "target": "Exploration",
+            "value": 5.099097422536522
+        },
+        {
+            "source": "Puzzle",
+            "target": "Family Friendly",
+            "value": 7.513724760398251
+        },
+        {
+            "source": "Puzzle",
+            "target": "Relaxing",
+            "value": 7.751000279147668
+        },
+        {
+            "source": "Puzzle",
+            "target": "3D",
+            "value": 5.131664650600167
+        },
+        {
+            "source": "Puzzle",
+            "target": "Colorful",
+            "value": 8.174374243975063
+        },
+        {
+            "source": "Puzzle",
+            "target": "Story Rich",
+            "value": 5.9179305852796125
+        },
+        {
+            "source": "Puzzle",
+            "target": "Cute",
+            "value": 6.601842374616172
+        },
+        {
+            "source": "Puzzle",
+            "target": "Logic",
+            "value": 6.601842374616172
+        },
+        {
+            "source": "Puzzle",
+            "target": "Minimalist",
+            "value": 6.0202847306225
+        },
+        {
+            "source": "Choices Matter",
+            "target": "Singleplayer",
+            "value": 5.373592630501536
+        },
+        {
+            "source": "Multiple Endings",
+            "target": "Singleplayer",
+            "value": 5.094444961384573
+        },
+        {
+            "source": "Female Protagonist",
+            "target": "Singleplayer",
+            "value": 8.374430073508886
+        },
+        {
+            "source": "Action-Adventure",
+            "target": "Singleplayer",
+            "value": 6.801898204149995
+        },
+        {
+            "source": "Arcade",
+            "target": "Singleplayer",
+            "value": 10.798362333674513
+        },
+        {
+            "source": "Arcade",
+            "target": "Indie",
+            "value": 5.70856983344189
+        },
+        {
+            "source": "Arcade",
+            "target": "2D",
+            "value": 7.3881083092956175
+        },
+        {
+            "source": "Retro",
+            "target": "Singleplayer",
+            "value": 8.57448590304271
+        },
+        {
+            "source": "Logic",
+            "target": "Singleplayer",
+            "value": 5.099097422536522
+        },
+        {
+            "source": "Anime",
+            "target": "Singleplayer",
+            "value": 10.212152228528893
+        },
+        {
+            "source": "Anime",
+            "target": "Cute",
+            "value": 5.70856983344189
+        },
+        {
+            "source": "Linear",
+            "target": "Singleplayer",
+            "value": 5.7457895226574855
+        },
+        {
+            "source": "Minimalist",
+            "target": "Singleplayer",
+            "value": 7.3369312366241735
+        },
+        {
+            "source": "Visual Novel",
+            "target": "Singleplayer",
+            "value": 7.257839397041034
+        },
+        {
+            "source": "Visual Novel",
+            "target": "Story Rich",
+            "value": 6.3878291616265
+        },
+        {
+            "source": "Visual Novel",
+            "target": "Anime",
+            "value": 6.746068670326603
+        }
+    ]
+}

@@ -18,7 +18,7 @@ function ForceGraph({
     linkSource = ({ source }) => source, // given d in links, returns a node identifier string
     linkTarget = ({ target }) => target, // given d in links, returns a node identifier string
     linkStroke = "#999", // link stroke color
-    linkStrokeOpacity = 0.6, // link stroke opacity
+    linkStrokeOpacity = 0.2, // link stroke opacity
     linkStrokeWidth = 0.2, // given d in links, returns a stroke width in pixels
     linkStrokeLinecap = "round", // link stroke linecap
     linkStrength,

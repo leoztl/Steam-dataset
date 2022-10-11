@@ -18,8 +18,8 @@ function ForceGraph({
     linkSource = ({ source }) => source, // given d in links, returns a node identifier string
     linkTarget = ({ target }) => target, // given d in links, returns a node identifier string
     linkStroke = "#999", // link stroke color
-    linkStrokeOpacity = 0.2, // link stroke opacity
-    linkStrokeWidth = 0.2, // given d in links, returns a stroke width in pixels
+    linkStrokeOpacity = 0.1, // link stroke opacity
+    linkStrokeWidth = 2, // given d in links, returns a stroke width in pixels
     linkStrokeLinecap = "round", // link stroke linecap
     linkStrength,
     colors = d3.schemeTableau10, // an array of color strings, for the node groups
@@ -27,6 +27,7 @@ function ForceGraph({
     height = 1000, // outer height, in pixels
     invalidation // when this promise resolves, stop the simulation
 } = {}) {
+    console.log(linkStrokeWidth)
     // Compute values.
     const N = d3.map(nodes, nodeId).map(intern);
     const LS = d3.map(links, linkSource).map(intern);
@@ -85,9 +86,21 @@ function ForceGraph({
         .attr("r", nodeRadius)
         .call(drag(simulation));
 
+    const text = svg.append("g")
+        /* .attr("fill", nodeFill)
+        .attr("stroke", nodeStroke)
+        .attr("stroke-opacity", nodeStrokeOpacity)
+        .attr("stroke-width", nodeStrokeWidth) */
+        .selectAll("text")
+        .data(nodes)
+        .join("text")
+        .text(function (d) { return d.id; })
+        .call(drag(simulation));
+
     if (W) link.attr("stroke-width", ({ index: i }) => W[i]);
     if (L) link.attr("stroke", ({ index: i }) => L[i]);
     if (G) node.attr("fill", ({ index: i }) => color(G[i]));
+    if (G) text.attr("fill", ({ index: i }) => color(G[i]));
     if (T) node.append("title").text(({ index: i }) => T[i]);
     if (invalidation != null) invalidation.then(() => simulation.stop());
 
@@ -96,16 +109,22 @@ function ForceGraph({
     }
 
     function ticked() {
-        factor = 3
+        factor = 4
         link
-            .attr("x1", d => factor*d.source.x)
-            .attr("y1", d => factor*d.source.y)
-            .attr("x2", d => factor*d.target.x)
-            .attr("y2", d => factor*d.target.y);
+            .attr("x1", d => factor * d.source.x)
+            .attr("y1", d => factor * d.source.y)
+            .attr("x2", d => factor * d.target.x)
+            .attr("y2", d => factor * d.target.y);
 
         node
-            .attr("cx", d => factor*d.x)
-            .attr("cy", d => factor*d.y);
+            .attr("cx", d => factor * d.x)
+            .attr("cy", d => factor * d.y);
+
+        text
+            .attr("x", d => factor * d.x)
+            .attr("y", d => factor * d.y)
+            .attr("dx", -20)
+            .attr("dy", 20);
     }
 
     function drag(simulation) {
@@ -140,6 +159,6 @@ d3.json("vis1.json").then(data => {
         nodeGroup: (d) => d.group,
         linkStrokeWidth: (l) => Math.sqrt(l.value),
         width: 1400,
-        height: 1200,
+        height: 1400,
     })
 });

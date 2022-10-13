@@ -56,14 +56,14 @@ var y = d3.scaleRadial()
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-d3.csv("data_vis3.csv", function(d, i, columns) {
+d3.csv("sales.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
 }, function(error, data) {
   if (error) throw error;
 
-  x.domain(data.map(function(d) { return d.State; }));
+  x.domain(data.map(function(d) { return d.Year; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
   z.domain(data.columns.slice(1));
 
@@ -78,8 +78,8 @@ d3.csv("data_vis3.csv", function(d, i, columns) {
       .attr("d", d3.arc()
           .innerRadius(function(d) { return y(d[0]); })
           .outerRadius(function(d) { return y(d[1]); })
-          .startAngle(function(d) { return x(d.data.State); })
-          .endAngle(function(d) { return x(d.data.State) + x.bandwidth(); })
+          .startAngle(function(d) { return x(d.data.Year); })
+          .endAngle(function(d) { return x(d.data.Year) + x.bandwidth(); })
           .padAngle(0.01)
           .padRadius(innerRadius));
 
@@ -88,15 +88,15 @@ d3.csv("data_vis3.csv", function(d, i, columns) {
     .data(data)
     .enter().append("g")
       .attr("text-anchor", "middle")
-      .attr("transform", function(d) { return "rotate(" + ((x(d.State) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ")translate(" + innerRadius + ",0)"; });
+      .attr("transform", function(d) { return "rotate(" + ((x(d.Year) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ")translate(" + innerRadius + ",0)"; });
 
   label.append("line")
       .attr("x2", -5)
       .attr("stroke", "#000");
 
   label.append("text")
-      .attr("transform", function(d) { return (x(d.State) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,16)" : "rotate(-90)translate(0,-9)"; })
-      .text(function(d) { return d.State; });
+      .attr("transform", function(d) { return (x(d.Year) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,16)" : "rotate(-90)translate(0,-9)"; })
+      .text(function(d) { return d.Year; });
 
   var yAxis = g.append("g")
       .attr("text-anchor", "middle");

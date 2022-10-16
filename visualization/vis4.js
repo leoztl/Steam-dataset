@@ -69,6 +69,18 @@ d3.csv("rate.csv").then(data => {
     }));
     var yaxis = d3.axisLeft(yscale);
     var xaxis = d3.axisBottom(xscale);
+    const xAxisGrid = d3.axisBottom(xscale).tickSize(-innerHeight).tickFormat('');
+    const yAxisGrid = d3.axisLeft(yscale).tickSize(-innerWidth).tickFormat('');
+    // append x grid
+    mainGroup.append('g')
+        .attr('class', 'grid')
+        .attr('transform', 'translate(0,' + innerHeight + ')')
+        .call(xAxisGrid);
+    // append y grid
+    mainGroup.append('g')
+        .attr('class', 'grid')
+        .call(yAxisGrid);
+    // append xaxis
     mainGroup.append('g')
         .attr("class", "xaxis")
         .attr("transform", "translate(0," + innerHeight + ")")
@@ -79,6 +91,7 @@ d3.csv("rate.csv").then(data => {
         .attr("fill", "#000")
         .attr("font-size", "20px")
         .text("Year");
+    // append yaxis
     mainGroup.append('g')
         .attr("class", "yaxis")
         .call(yaxis)
@@ -88,6 +101,36 @@ d3.csv("rate.csv").then(data => {
         .attr("font-size", "20px")
         .text("Rating");
 
+    let tooltip = d3.select('#container').append("div")
+        .attr("id", "tooltip")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+    function start(event, d) {
+        op = d3.select(this).attr('opacity')
+        if (op != 0) {
+            d3.select(this)
+                .attr('opacity', 0.85)
+                .attr("stroke-width", 4);
+        }
+        tooltip.html(d3.select(this).attr("id").slice(5).replaceAll("_", " ") + "<br>" + yscale.invert(event.pageY - margin.top - 8));
+        tooltip
+            .style("position", "absolute")
+            .style("background", color(d3.select(this).attr("id").slice(5)))
+            .style("left", (event.pageX) + "px")
+            .style("top", (event.pageY - 40) + "px")
+            .style("opacity", .9);
+    }
+    function end(event, d) {
+        op = d3.select(this).attr('opacity')
+        if (op != 0) {
+            op = 1
+            d3.select(this)
+                .attr('opacity', 1)
+                .attr("stroke-width", 2);
+        }
+        tooltip.html(d3.select(this).attr("id"))
+            .style("opacity", 0);
+    }
     let tag = mainGroup.selectAll(".tag")
         .data(tags)
         .enter()
@@ -97,40 +140,13 @@ d3.csv("rate.csv").then(data => {
         .attr("class", "line")
         .attr("fill", "none")
         .attr("opacity", 0)
-        .attr("stroke-width", 2)
+        .attr("stroke-width", 0)
         .attr('id', function (d) { return 'line-' + d.id })
         .attr("d", function (d) { return line(d.values); })
         .style("stroke", function (d) { return color(d.id); })
-        .on('mouseover', function (d, i) {
-            op = d3.select(this).attr('opacity')
-            if (op != 0) {
-                d3.select(this)
-                    .attr('opacity', 0.85)
-                    .attr("stroke-width", 4);
-            }
-
-        })
-        .on('mouseout', function (d, i) {
-            op = d3.select(this).attr('opacity')
-            if (op != 0) {
-                op = 1
-                d3.select(this)
-                    .attr('opacity', 1)
-                    .attr("stroke-width", 2);
-            }
-
-        })
+        .on('mouseover', start)
+        .on('mouseout', end)
     console.log(tags[0])
-    /* mainGroup.append("path")
-        .datum(tags[0])
-        .attr("class", "line")
-        .attr("transform","translate(0,100)")
-        .attr("fill", "none")
-        .attr("opacity", 1)
-        .attr("stroke-width", 2)
-        .attr('id', function (d) { return 'line-' + d.id })
-        .attr("d", function (d) { return line(d.values); })
-        .style("stroke", function (d) { return color(d.id); }) */
     var longY = function (d) { return d.value.Year.length };
     var longE = function (d) { return d.value.Year.length };
 
@@ -156,8 +172,8 @@ d3.csv("rate.csv").then(data => {
         tick.value = tags[i].id;
 
         var label = document.createElement('label');
-        label.for = tags[i].id.replaceAll("_"," ")
-        label.appendChild(document.createTextNode(tags[i].id));
+        label.for = tags[i].id.replaceAll("_", " ")
+        label.appendChild(document.createTextNode(tags[i].id.replaceAll("_", " ")));
         var divcheck = document.createElement('div');
         divcheck.id = "nation";
         // tick.appendChild(document.createTextNode(tags[i].id));
@@ -185,8 +201,10 @@ d3.csv("rate.csv").then(data => {
             if (svgline.attr('opacity') === '0') {
                 // console.log('making it visible');
                 svgline.attr('opacity', 1);
+                svgline.attr('stroke-width', 2);
             } else {
                 svgline.attr('opacity', 0);
+                svgline.attr('stroke-width', 0);
             }
 
             if (textline.attr('opacity') === '0') {

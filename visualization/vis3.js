@@ -133,7 +133,7 @@ d3.csv("sales.csv", function(d, i, columns) {
     .selectAll("g")
     .data(data.columns.slice(1).reverse())
     .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(-40," + (i - (data.columns.length - 1) / 2) * 20 + ")"; });
+      .attr("transform", function(d, i) { return "translate(400," + (i - (data.columns.length - 1) / 2) * 20 + ")"; });
 
   legend.append("rect")
       .attr("width", 18)

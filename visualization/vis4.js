@@ -25,6 +25,7 @@ function hasWhiteSpace(s) {
     return s.indexOf(' ') >= 0;
 }
 d3.csv("rate.csv").then(data => {
+    console.log(data)
     data.forEach(function (d) {
         d.Year = d3.timeParse("%Y")(d.Year);
     })
@@ -40,12 +41,11 @@ d3.csv("rate.csv").then(data => {
             })
         }
     })
-    console.log(tags);
+    console.log(tags)
     let tag_id = [];
     for (const i in tags) {
         tag_id.push(tags[i].id);
     }
-    console.log(tag_id);
     //define x axis
     xscale.domain(d3.extent(data, function (d) {
         return d.Year;
@@ -64,7 +64,6 @@ d3.csv("rate.csv").then(data => {
     ]);
     //define color scale
     color.domain(tags.map(function (c) {
-        console.log(tag_id.indexOf(c.id));
         return tag_id.indexOf(c.id);
     }));
     var yaxis = d3.axisLeft(yscale);
@@ -146,7 +145,7 @@ d3.csv("rate.csv").then(data => {
         .style("stroke", function (d) { return color(d.id); })
         .on('mouseover', start)
         .on('mouseout', end)
-    console.log(tags[0])
+
     var longY = function (d) { return d.value.Year.length };
     var longE = function (d) { return d.value.Year.length };
 

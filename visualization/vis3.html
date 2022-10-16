@@ -1,15 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<style>
+    div.tooltip {
+        position: absolute;
+        text-align: center;
+        padding: 6px;
+        font: 12px sans-serif;
+        background: lightsteelblue;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+
+    .grid line {
+        stroke: rgb(104, 166, 228);
+    }
+
+    .grid path {
+        stroke-width: 0;
+    }
+
+    .grid circle {
+        stroke: rgb(104, 166, 228);
+    }
+</style>
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript", src = "https://cdn.jsdelivr.net/npm/d3@7"> </script>
-    <script type="text/javascript", src = "https://cdn.jsdelivr.net/npm/d3@4"> </script>
-    <title>Final Project</title>
+    <title></title>
+    <script type="text/javascript" src="d3.js"></script>
 </head>
+
 <body>
-  <svg width="1500" height="800"></svg> 
-  <script type="text/javascript", src = "vis3.js"> </script>
+    <div id="container">
+        <div id="menu" , style="position:absolute; left:1000px; top:280px; height: 500px; width:500px"></div>
+
+        <div class="graph">
+            <svg width="1000" height="1000"></svg>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" , src="vis3.js">
+
+    </script>
 </body>
+
 </html>

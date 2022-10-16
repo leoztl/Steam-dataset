@@ -109,7 +109,7 @@ function ForceGraph({
     }
 
     function ticked() {
-        factor = 4
+        factor = 5
         link
             .attr("x1", d => factor * d.source.x)
             .attr("y1", d => factor * d.source.y)

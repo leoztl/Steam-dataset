@@ -196,23 +196,8 @@
     "links": [
         {
             "source": "Free to Play",
-            "target": "Action",
-            "value": 5.0622631293990255
-        },
-        {
-            "source": "Free to Play",
             "target": "Indie",
             "value": 8.57065511640498
-        },
-        {
-            "source": "Free to Play",
-            "target": "Casual",
-            "value": 5.435841905793178
-        },
-        {
-            "source": "Multiplayer",
-            "target": "Co-op",
-            "value": 6.025988088792636
         },
         {
             "source": "Multiplayer",
@@ -221,23 +206,8 @@
         },
         {
             "source": "Strategy",
-            "target": "Multiplayer",
-            "value": 5.798592311857066
-        },
-        {
-            "source": "Strategy",
             "target": "Action",
             "value": 7.493232268543585
-        },
-        {
-            "source": "Strategy",
-            "target": "Fantasy",
-            "value": 5.841905793178126
-        },
-        {
-            "source": "Strategy",
-            "target": "RPG",
-            "value": 5.831077422847861
         },
         {
             "source": "Strategy",
@@ -261,11 +231,6 @@
         },
         {
             "source": "Strategy",
-            "target": "Atmospheric",
-            "value": 5.143475906876016
-        },
-        {
-            "source": "Strategy",
             "target": "2D",
             "value": 11.510557661072008
         },
@@ -273,11 +238,6 @@
             "source": "Strategy",
             "target": "Simulation",
             "value": 8.965890633459663
-        },
-        {
-            "source": "Strategy",
-            "target": "Puzzle",
-            "value": 5.571196534921494
         },
         {
             "source": "Action",
@@ -321,11 +281,6 @@
         },
         {
             "source": "Action",
-            "target": "Open World",
-            "value": 5.733622089875474
-        },
-        {
-            "source": "Action",
             "target": "Adventure",
             "value": 34.27720628045479
         },
@@ -343,11 +298,6 @@
             "source": "Action",
             "target": "Funny",
             "value": 9.44775311315647
-        },
-        {
-            "source": "Action",
-            "target": "Comedy",
-            "value": 6.280454791553872
         },
         {
             "source": "Action",
@@ -416,16 +366,6 @@
         },
         {
             "source": "Action",
-            "target": "2D Platformer",
-            "value": 5.511640498105035
-        },
-        {
-            "source": "Action",
-            "target": "Family Friendly",
-            "value": 6.004331348132106
-        },
-        {
-            "source": "Action",
             "target": "3D",
             "value": 11.299404439631836
         },
@@ -451,11 +391,6 @@
         },
         {
             "source": "Action",
-            "target": "Female Protagonist",
-            "value": 5.192203573362209
-        },
-        {
-            "source": "Action",
             "target": "Action-Adventure",
             "value": 9.967514889009205
         },
@@ -470,34 +405,14 @@
             "value": 13.17271250676773
         },
         {
-            "source": "Action",
-            "target": "Anime",
-            "value": 5.917704385489984
-        },
-        {
-            "source": "Action",
-            "target": "Top-Down",
-            "value": 6.025988088792636
-        },
-        {
             "source": "Difficult",
             "target": "Singleplayer",
             "value": 7.666486193827829
         },
         {
-            "source": "Difficult",
-            "target": "2D",
-            "value": 5.576610720086627
-        },
-        {
             "source": "Fantasy",
             "target": "Singleplayer",
             "value": 10.167839740119113
-        },
-        {
-            "source": "RPG",
-            "target": "Strategy",
-            "value": 6.004331348132106
         },
         {
             "source": "RPG",
@@ -526,23 +441,8 @@
         },
         {
             "source": "RPG",
-            "target": "Casual",
-            "value": 5.739036275040607
-        },
-        {
-            "source": "RPG",
-            "target": "Atmospheric",
-            "value": 5.230102869518138
-        },
-        {
-            "source": "RPG",
             "target": "2D",
             "value": 10.866269626421223
-        },
-        {
-            "source": "RPG",
-            "target": "Pixel Graphics",
-            "value": 6.426637791012453
         },
         {
             "source": "RPG",
@@ -556,11 +456,6 @@
         },
         {
             "source": "Shooter",
-            "target": "First-Person",
-            "value": 6.123443421765025
-        },
-        {
-            "source": "Shooter",
             "target": "Singleplayer",
             "value": 9.12290200324851
         },
@@ -571,18 +466,8 @@
         },
         {
             "source": "First-Person",
-            "target": "Indie",
-            "value": 5.148890092041148
-        },
-        {
-            "source": "First-Person",
             "target": "Atmospheric",
             "value": 7.6177585273416355
-        },
-        {
-            "source": "Open World",
-            "target": "Singleplayer",
-            "value": 5.70655116404981
         },
         {
             "source": "Adventure",
@@ -596,11 +481,6 @@
         },
         {
             "source": "Adventure",
-            "target": "Difficult",
-            "value": 5.86897671900379
-        },
-        {
-            "source": "Adventure",
             "target": "Fantasy",
             "value": 11.662154845695722
         },
@@ -611,28 +491,13 @@
         },
         {
             "source": "Adventure",
-            "target": "Shooter",
-            "value": 5.0027070925825665
-        },
-        {
-            "source": "Adventure",
             "target": "First-Person",
             "value": 9.664320519761777
         },
         {
             "source": "Adventure",
-            "target": "Open World",
-            "value": 5.825663237682729
-        },
-        {
-            "source": "Adventure",
             "target": "Third Person",
             "value": 6.691932864103952
-        },
-        {
-            "source": "Adventure",
-            "target": "Violent",
-            "value": 6.323768272874933
         },
         {
             "source": "Adventure",
@@ -643,11 +508,6 @@
             "source": "Adventure",
             "target": "Comedy",
             "value": 6.8976719003789935
-        },
-        {
-            "source": "Adventure",
-            "target": "Survival",
-            "value": 5.636166756903086
         },
         {
             "source": "Adventure",
@@ -761,11 +621,6 @@
         },
         {
             "source": "Adventure",
-            "target": "Arcade",
-            "value": 5.208446128857607
-        },
-        {
-            "source": "Adventure",
             "target": "Retro",
             "value": 8.760151597184624
         },
@@ -775,34 +630,9 @@
             "value": 8.012994044396319
         },
         {
-            "source": "Adventure",
-            "target": "Visual Novel",
-            "value": 6.150514347590687
-        },
-        {
-            "source": "Third Person",
-            "target": "Singleplayer",
-            "value": 5.403356794802383
-        },
-        {
-            "source": "Funny",
-            "target": "Comedy",
-            "value": 5.078505684894424
-        },
-        {
             "source": "Funny",
             "target": "Singleplayer",
             "value": 8.067135896047645
-        },
-        {
-            "source": "Comedy",
-            "target": "Singleplayer",
-            "value": 5.896047644829453
-        },
-        {
-            "source": "Survival",
-            "target": "Singleplayer",
-            "value": 5.138061721710883
         },
         {
             "source": "Sci-fi",
@@ -818,16 +648,6 @@
             "source": "Singleplayer",
             "target": "Difficult",
             "value": 7.704385489983758
-        },
-        {
-            "source": "Singleplayer",
-            "target": "Fantasy",
-            "value": 6.3779101245262595
-        },
-        {
-            "source": "Singleplayer",
-            "target": "First-Person",
-            "value": 5.538711423930699
         },
         {
             "source": "Singleplayer",
@@ -895,16 +715,6 @@
             "value": 6.8381158635625345
         },
         {
-            "source": "Singleplayer",
-            "target": "Puzzle",
-            "value": 6.0476448294531675
-        },
-        {
-            "source": "Singleplayer",
-            "target": "Retro",
-            "value": 5.739036275040607
-        },
-        {
             "source": "Indie",
             "target": "Multiplayer",
             "value": 7.953438007579859
@@ -963,11 +773,6 @@
             "source": "Indie",
             "target": "Comedy",
             "value": 6.713589604764484
-        },
-        {
-            "source": "Indie",
-            "target": "Survival",
-            "value": 5.116404981050352
         },
         {
             "source": "Indie",
@@ -1036,11 +841,6 @@
         },
         {
             "source": "Indie",
-            "target": "3D",
-            "value": 6.025988088792636
-        },
-        {
-            "source": "Indie",
             "target": "Colorful",
             "value": 9.350297780184082
         },
@@ -1080,21 +880,6 @@
             "value": 8.007579859231186
         },
         {
-            "source": "Indie",
-            "target": "Minimalist",
-            "value": 5.23551705468327
-        },
-        {
-            "source": "Indie",
-            "target": "Visual Novel",
-            "value": 5.311315646995127
-        },
-        {
-            "source": "Casual",
-            "target": "Multiplayer",
-            "value": 5.614510016242556
-        },
-        {
             "source": "Casual",
             "target": "Strategy",
             "value": 13.844071467244179
@@ -1103,11 +888,6 @@
             "source": "Casual",
             "target": "Action",
             "value": 12.539252842447212
-        },
-        {
-            "source": "Casual",
-            "target": "Difficult",
-            "value": 5.711965349214943
         },
         {
             "source": "Casual",
@@ -1121,11 +901,6 @@
         },
         {
             "source": "Casual",
-            "target": "First-Person",
-            "value": 5.70655116404981
-        },
-        {
-            "source": "Casual",
             "target": "Adventure",
             "value": 20.032485110990798
         },
@@ -1133,11 +908,6 @@
             "source": "Casual",
             "target": "Funny",
             "value": 10.757985923118571
-        },
-        {
-            "source": "Casual",
-            "target": "Comedy",
-            "value": 6.437466161342718
         },
         {
             "source": "Casual",
@@ -1153,11 +923,6 @@
             "source": "Casual",
             "target": "Atmospheric",
             "value": 14.309691391445586
-        },
-        {
-            "source": "Casual",
-            "target": "Great Soundtrack",
-            "value": 5.7823497563616675
         },
         {
             "source": "Casual",
@@ -1216,18 +981,8 @@
         },
         {
             "source": "Casual",
-            "target": "Point & Click",
-            "value": 6.139685977260422
-        },
-        {
-            "source": "Casual",
             "target": "Puzzle",
             "value": 19.61017866811045
-        },
-        {
-            "source": "Casual",
-            "target": "Female Protagonist",
-            "value": 5.230102869518138
         },
         {
             "source": "Casual",
@@ -1255,16 +1010,6 @@
             "value": 9.030860855441256
         },
         {
-            "source": "Casual",
-            "target": "Visual Novel",
-            "value": 5.284244721169464
-        },
-        {
-            "source": "Atmospheric",
-            "target": "Adventure",
-            "value": 6.285868976719004
-        },
-        {
             "source": "Atmospheric",
             "target": "Singleplayer",
             "value": 15.116404981050351
@@ -1275,24 +1020,9 @@
             "value": 6.556578234975636
         },
         {
-            "source": "Atmospheric",
-            "target": "Story Rich",
-            "value": 6.345425013535463
-        },
-        {
-            "source": "Horror",
-            "target": "First-Person",
-            "value": 5.744450460205739
-        },
-        {
             "source": "Horror",
             "target": "Singleplayer",
             "value": 9.047103410936653
-        },
-        {
-            "source": "Horror",
-            "target": "Indie",
-            "value": 5.192203573362209
         },
         {
             "source": "Horror",
@@ -1300,19 +1030,9 @@
             "value": 7.742284786139686
         },
         {
-            "source": "Horror",
-            "target": "Story Rich",
-            "value": 5.560368164591229
-        },
-        {
             "source": "2D",
             "target": "Action",
             "value": 7.8776394152680025
-        },
-        {
-            "source": "2D",
-            "target": "Difficult",
-            "value": 5.41959935029778
         },
         {
             "source": "2D",
@@ -1396,16 +1116,6 @@
         },
         {
             "source": "Pixel Graphics",
-            "target": "Fantasy",
-            "value": 5.305901461829995
-        },
-        {
-            "source": "Pixel Graphics",
-            "target": "Adventure",
-            "value": 5.338386572820791
-        },
-        {
-            "source": "Pixel Graphics",
             "target": "Singleplayer",
             "value": 14.710341093665402
         },
@@ -1426,23 +1136,8 @@
         },
         {
             "source": "Exploration",
-            "target": "First-Person",
-            "value": 5.013535462912832
-        },
-        {
-            "source": "Exploration",
-            "target": "Adventure",
-            "value": 5.143475906876016
-        },
-        {
-            "source": "Exploration",
             "target": "Singleplayer",
             "value": 9.49106659447753
-        },
-        {
-            "source": "Exploration",
-            "target": "Indie",
-            "value": 5.05143475906876
         },
         {
             "source": "Exploration",
@@ -1451,33 +1146,13 @@
         },
         {
             "source": "Exploration",
-            "target": "2D",
-            "value": 5.646995127233351
-        },
-        {
-            "source": "Exploration",
             "target": "3D",
             "value": 6.589063345966433
-        },
-        {
-            "source": "Exploration",
-            "target": "Story Rich",
-            "value": 5.403356794802383
-        },
-        {
-            "source": "Platformer",
-            "target": "Action",
-            "value": 5.5224688684353005
         },
         {
             "source": "Platformer",
             "target": "Singleplayer",
             "value": 10.49269085002707
-        },
-        {
-            "source": "Platformer",
-            "target": "Indie",
-            "value": 6.226312939902544
         },
         {
             "source": "Platformer",
@@ -1490,29 +1165,9 @@
             "value": 6.589063345966433
         },
         {
-            "source": "Platformer",
-            "target": "Colorful",
-            "value": 5.2680021656740665
-        },
-        {
-            "source": "Platformer",
-            "target": "Retro",
-            "value": 5.056848944233893
-        },
-        {
             "source": "Simulation",
             "target": "Strategy",
             "value": 7.07634001082837
-        },
-        {
-            "source": "Simulation",
-            "target": "Action",
-            "value": 5.257173795343801
-        },
-        {
-            "source": "Simulation",
-            "target": "Adventure",
-            "value": 6.063887384948565
         },
         {
             "source": "Simulation",
@@ -1530,39 +1185,9 @@
             "value": 7.42284786139686
         },
         {
-            "source": "Simulation",
-            "target": "Atmospheric",
-            "value": 6.318354087709801
-        },
-        {
-            "source": "Simulation",
-            "target": "2D",
-            "value": 6.2371413102328095
-        },
-        {
-            "source": "Simulation",
-            "target": "3D",
-            "value": 5.879805089334055
-        },
-        {
-            "source": "2D Platformer",
-            "target": "Singleplayer",
-            "value": 5.863562533838658
-        },
-        {
-            "source": "2D Platformer",
-            "target": "Indie",
-            "value": 5.100162425554954
-        },
-        {
             "source": "2D Platformer",
             "target": "2D",
             "value": 9.962100703844072
-        },
-        {
-            "source": "2D Platformer",
-            "target": "Pixel Graphics",
-            "value": 5.073091499729291
         },
         {
             "source": "Family Friendly",
@@ -1575,21 +1200,6 @@
             "value": 8.781808337845154
         },
         {
-            "source": "Relaxing",
-            "target": "Family Friendly",
-            "value": 5.0027070925825665
-        },
-        {
-            "source": "3D",
-            "target": "First-Person",
-            "value": 5.97184623714131
-        },
-        {
-            "source": "3D",
-            "target": "Third Person",
-            "value": 5.121819166215484
-        },
-        {
             "source": "3D",
             "target": "Singleplayer",
             "value": 10.270709258256632
@@ -1600,39 +1210,14 @@
             "value": 7.065511640498105
         },
         {
-            "source": "3D",
-            "target": "Atmospheric",
-            "value": 5.690308608554413
-        },
-        {
-            "source": "3D",
-            "target": "Colorful",
-            "value": 6.231727125067677
-        },
-        {
             "source": "Colorful",
             "target": "Singleplayer",
             "value": 10.34650785056849
         },
         {
             "source": "Colorful",
-            "target": "Indie",
-            "value": 5.988088792636708
-        },
-        {
-            "source": "Colorful",
-            "target": "Atmospheric",
-            "value": 5.739036275040607
-        },
-        {
-            "source": "Colorful",
             "target": "Family Friendly",
             "value": 6.751488900920412
-        },
-        {
-            "source": "Colorful",
-            "target": "Cute",
-            "value": 5.165132647536546
         },
         {
             "source": "Story Rich",
@@ -1646,28 +1231,8 @@
         },
         {
             "source": "Story Rich",
-            "target": "Indie",
-            "value": 5.641580942068218
-        },
-        {
-            "source": "Story Rich",
             "target": "Atmospheric",
             "value": 8.770979967514888
-        },
-        {
-            "source": "Story Rich",
-            "target": "Great Soundtrack",
-            "value": 5.035192203573362
-        },
-        {
-            "source": "Story Rich",
-            "target": "2D",
-            "value": 5.5224688684353005
-        },
-        {
-            "source": "Cute",
-            "target": "Funny",
-            "value": 6.145100162425555
         },
         {
             "source": "Cute",
@@ -1676,38 +1241,8 @@
         },
         {
             "source": "Cute",
-            "target": "Indie",
-            "value": 6.188413643746616
-        },
-        {
-            "source": "Cute",
-            "target": "Casual",
-            "value": 5.0081212777476996
-        },
-        {
-            "source": "Cute",
-            "target": "Family Friendly",
-            "value": 6.036816459122902
-        },
-        {
-            "source": "Cute",
             "target": "Colorful",
             "value": 7.845154304277206
-        },
-        {
-            "source": "Point & Click",
-            "target": "Singleplayer",
-            "value": 6.323768272874933
-        },
-        {
-            "source": "Point & Click",
-            "target": "2D",
-            "value": 6.07471575527883
-        },
-        {
-            "source": "Puzzle",
-            "target": "Adventure",
-            "value": 6.193827828911749
         },
         {
             "source": "Puzzle",
@@ -1736,11 +1271,6 @@
         },
         {
             "source": "Puzzle",
-            "target": "Exploration",
-            "value": 5.733622089875474
-        },
-        {
-            "source": "Puzzle",
             "target": "Family Friendly",
             "value": 8.364916080129941
         },
@@ -1748,11 +1278,6 @@
             "source": "Puzzle",
             "target": "Relaxing",
             "value": 8.54899837574445
-        },
-        {
-            "source": "Puzzle",
-            "target": "3D",
-            "value": 5.804006497022198
         },
         {
             "source": "Puzzle",
@@ -1771,11 +1296,6 @@
         },
         {
             "source": "Puzzle",
-            "target": "Mystery",
-            "value": 5.246345425013535
-        },
-        {
-            "source": "Puzzle",
             "target": "Minimalist",
             "value": 6.843530048727667
         },
@@ -1785,54 +1305,14 @@
             "value": 8.310774228478614
         },
         {
-            "source": "Female Protagonist",
-            "target": "2D",
-            "value": 5.046020573903628
-        },
-        {
-            "source": "Female Protagonist",
-            "target": "Story Rich",
-            "value": 5.175961017866811
-        },
-        {
-            "source": "Action-Adventure",
-            "target": "Singleplayer",
-            "value": 5.955603681645912
-        },
-        {
-            "source": "Action-Adventure",
-            "target": "3D",
-            "value": 5.495397942609637
-        },
-        {
-            "source": "Arcade",
-            "target": "Action",
-            "value": 5.609095831077423
-        },
-        {
             "source": "Arcade",
             "target": "Singleplayer",
             "value": 11.164049810503519
         },
         {
             "source": "Arcade",
-            "target": "Indie",
-            "value": 6.3779101245262595
-        },
-        {
-            "source": "Arcade",
             "target": "2D",
             "value": 11.164049810503519
-        },
-        {
-            "source": "Arcade",
-            "target": "Pixel Graphics",
-            "value": 5.625338386572821
-        },
-        {
-            "source": "Arcade",
-            "target": "3D",
-            "value": 5.381700054141851
         },
         {
             "source": "Arcade",
@@ -1840,19 +1320,9 @@
             "value": 7.049269085002708
         },
         {
-            "source": "Arcade",
-            "target": "Retro",
-            "value": 6.193827828911749
-        },
-        {
             "source": "Retro",
             "target": "Singleplayer",
             "value": 9.534380075798591
-        },
-        {
-            "source": "Retro",
-            "target": "2D",
-            "value": 5.0081212777476996
         },
         {
             "source": "Anime",
@@ -1860,39 +1330,9 @@
             "value": 10.335679480238225
         },
         {
-            "source": "Anime",
-            "target": "Indie",
-            "value": 5.018949648077965
-        },
-        {
-            "source": "Anime",
-            "target": "Story Rich",
-            "value": 5.289658906334597
-        },
-        {
-            "source": "Anime",
-            "target": "Cute",
-            "value": 6.469951272333514
-        },
-        {
-            "source": "Top-Down",
-            "target": "Singleplayer",
-            "value": 5.354629128316189
-        },
-        {
-            "source": "Minimalist",
-            "target": "Singleplayer",
-            "value": 6.497022198159177
-        },
-        {
             "source": "Visual Novel",
             "target": "Singleplayer",
             "value": 6.643205197617759
-        },
-        {
-            "source": "Visual Novel",
-            "target": "2D",
-            "value": 5.338386572820791
         },
         {
             "source": "Visual Novel",

@@ -15,34 +15,34 @@ function WordCloud(text, {
   invalidation // when this promise resolves, stop the simulation
 } = {}) {
   const words = typeof text === "string" ? text.split(/\W+/g) : Array.from(text);
-  
+
   const data = d3.rollups(words, size, w => w)
     .sort(([, a], [, b]) => d3.descending(a, b))
     .slice(0, maxWords)
-    .map(([key, size]) => ({text: word(key), size}));
-  
+    .map(([key, size]) => ({ text: word(key), size }));
+
   const svg = d3.select("svg")
-      .attr("viewBox", [0, 0, width, height])
-      .attr("width", width)
-      .attr("font-family", fontFamily)
-      .attr("text-anchor", "middle")
-      .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+    .attr("viewBox", [0, 0, width, height])
+    .attr("width", width)
+    .attr("font-family", fontFamily)
+    .attr("text-anchor", "middle")
+    .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
 
   const g = svg.append("g").attr("transform", `translate(${marginLeft},${marginTop})`);
 
   const cloud = d3.layout.cloud()
-      .size([width - marginLeft - marginRight, height - marginTop - marginBottom])
-      .words(data)
-      .padding(padding)
-      .rotate(rotate)
-      .font(fontFamily)
-      .fontSize(d => Math.sqrt(d.size) * fontScale)
-      .on("word", ({size, x, y, rotate, text}) => {
+    .size([width - marginLeft - marginRight, height - marginTop - marginBottom])
+    .words(data)
+    .padding(padding)
+    .rotate(rotate)
+    .font(fontFamily)
+    .fontSize(d => Math.sqrt(d.size) * fontScale)
+    .on("word", ({ size, x, y, rotate, text }) => {
       g.append("text")
-            .attr("font-size", size)
-            .attr("transform", `translate(${x},${y}) rotate(${rotate})`)
-            .text(text);
-      });
+        .attr("font-size", size)
+        .attr("transform", `translate(${x},${y}) rotate(${rotate})`)
+        .text(text);
+    });
 
   cloud.start();
   console.log(size)
@@ -52,8 +52,8 @@ function WordCloud(text, {
 
 d3.text("WordCloud.txt").then(data => {
   svg = WordCloud(data, {
-      width: 2000,
-      height: 1200,
-      /* invalidation, // a promise to stop the simulation when the cell is re-run */
+    width: 2000,
+    height: 1200,
+    /* invalidation, // a promise to stop the simulation when the cell is re-run */
   })
 });

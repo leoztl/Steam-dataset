@@ -93,7 +93,7 @@ function ForceGraph({
         .join("text")
         .text(function (d) { return d.id; })
         .call(drag(simulation));
-    let tooltip = d3.select("#menu1").append("div")
+    let tooltip = d3.select("#menu").append("div")
         .attr("id", "tooltip")
         .attr("class", "tooltip")
         .style("opacity", 0)

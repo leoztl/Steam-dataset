@@ -60,7 +60,7 @@ function ForceGraph({
         .force("center", d3.forceCenter())
         .on("tick", ticked);
 
-    const svg = d3.select("svg")
+    const svg = d3.select("#svg1")
         .attr("width", width)
         .attr("height", height)
         .attr("viewBox", [-width / 2, -height / 2, width, height])
@@ -119,6 +119,7 @@ function ForceGraph({
                 connection.push({ "target": target, "value": value, "target_idx": target_idx })
             }
         }
+        console.log(connection)
         tooltip
             /* .style("position", "absolute")
             .style("left", (event.pageX) + "px")

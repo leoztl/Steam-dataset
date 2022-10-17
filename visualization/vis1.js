@@ -27,7 +27,7 @@ function ForceGraph({
     height = 1000, // outer height, in pixels
     invalidation // when this promise resolves, stop the simulation
 } = {}) {
-    console.log(linkStrokeWidth)
+    let real_links = links;
     // Compute values.
     const N = d3.map(nodes, nodeId).map(intern);
     const LS = d3.map(links, linkSource).map(intern);
@@ -84,19 +84,66 @@ function ForceGraph({
         .data(nodes)
         .join("circle")
         .attr("r", nodeRadius)
-        .call(drag(simulation));
+        .call(drag(simulation))
+        .on("click", start);
 
     const text = svg.append("g")
-        /* .attr("fill", nodeFill)
-        .attr("stroke", nodeStroke)
-        .attr("stroke-opacity", nodeStrokeOpacity)
-        .attr("stroke-width", nodeStrokeWidth) */
         .selectAll("text")
         .data(nodes)
         .join("text")
         .text(function (d) { return d.id; })
         .call(drag(simulation));
-
+    let tooltip = d3.select("#menu").append("div")
+        .attr("id", "tooltip")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("background", "white");
+    tooltip.append("span").attr("id", "node");
+    tooltip.append("span").attr("id", "nodevalue");
+    tooltip.append("g").attr("id", "display2");
+    function start(event, d) {
+        console.log(d)
+        console.log(nodes)
+        let index = d.index;
+        connection = [];
+        for (let i = 0; i < real_links.length; i++) {
+            if (real_links[i].source == d.id) {
+                let target = real_links[i].target;
+                let value = real_links[i].value;
+                let target_idx = 0;
+                for(let j = 0; j < nodes.length;j++){
+                    if(nodes[j].id == target){
+                        target_idx = nodes[j].index;
+                    }
+                }
+                connection.push({ "target": target, "value": value, "target_idx":target_idx})
+            }
+        }
+        console.log(connection)
+        tooltip
+            /* .style("position", "absolute")
+            .style("left", (event.pageX) + "px")
+            .style("top", (event.pageY - 40) + "px") */
+            .style("opacity", .9);
+        tooltip.select("#node").text("Node name: ").style("font-size", "14px")
+        tooltip.select("#nodevalue").text(d.id)
+            .style("font-size", "14px")
+            .style("color", color(G[index]))
+            .append("br")
+        let sub = tooltip.select("#display2")
+            .selectAll("span")
+            .data(connection)
+            .join("span")
+            .attr("dy", function (d, i) {
+                return 500 * i;
+            })
+            .attr("dx", 0)
+        sub.append("span").text("Connected to ").style("font-size", "14px")
+        sub.append("span").text(function(d){return d.target}).style("font-size", "14px").style("color", function(d){return color(G[d.target_idx])})
+        sub.append("span").text(" ; Value: ").style("font-size", "14px")
+        sub.append("span").text(function(d){return d.value}).style("font-size", "14px").style("color", function(d){return color(G[d.target_idx])})
+            .append('br');
+    }
     if (W) link.attr("stroke-width", ({ index: i }) => W[i]);
     if (L) link.attr("stroke", ({ index: i }) => L[i]);
     if (G) node.attr("fill", ({ index: i }) => color(G[i]));

@@ -117,7 +117,7 @@ d3.csv("rate.csv").then(data => {
             .style("background", color(d3.select(this).attr("id").slice(5)))
             .style("left", (event.pageX) + "px")
             .style("top", (event.pageY - 40) + "px")
-            .style("opacity", .9);
+            .style("opacity", .8);
     }
     function end(event, d) {
         op = d3.select(this).attr('opacity')

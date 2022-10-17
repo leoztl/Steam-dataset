@@ -76,7 +76,42 @@ d3.csv("sales.csv").then(data => {
 
         });
     }
+    function getKeyByValue(object, value) {
+        for (var prop in object) {
+            if (object.hasOwnProperty(prop)) {
+                if (+object[prop] === value) {
+                    if (keys.includes(prop)) {
+                        return prop;
+                    }
 
+                }
+
+            }
+        }
+    }
+    let tooltip = d3.select('#container').append("div")
+        .attr("id", "tooltip")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+    function start(event, d) {
+        console.log(d);
+        let current_data = d.data;
+        let current_val = d[1] - d[0];
+        let current_name = getKeyByValue(current_data, current_val);
+        tooltip.html(current_name).style("opacity", 0);
+        tooltip
+            .style("position", "absolute")
+            .style("background", color(current_name))
+            .style("left", (event.pageX) + "px")
+            .style("top", (event.pageY - 40) + "px")
+            .style("opacity", .9);
+
+    }
+    function end(event, d) {
+
+        tooltip.html(d3.select(this).attr("id"))
+            .style("opacity", 0);
+    }
     function update(stacked, maxi) {
         yscale.domain([0, maxi]);
         mainGroup.select("#chart")
@@ -85,8 +120,10 @@ d3.csv("sales.csv").then(data => {
             .join('g')
             .attr("fill", function (d) { return color(d.key); })
             .selectAll("path")
-            .data(function (d) { console.log(d); return d; })
+            .data(function (d) { return d; })
             .join("path")
+            .on("mouseover", start)
+            .on("mouseout", end)
             .transition().duration(1000)
             .attr("d", d3.arc()
                 .innerRadius(function (d) { return yscale(d[0]); })
@@ -139,7 +176,7 @@ d3.csv("sales.csv").then(data => {
             .attr("y", function (d) { return -yscale(d); })
             .attr("x", 0)
             .attr("dy", "8px")
-            .text(function (d) { console.log(d); return d; });
+            .text(function (d) { return d; });
     }
 
 

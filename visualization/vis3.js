@@ -1,183 +1,135 @@
-const svg = d3.select('svg');
-const width = svg.attr("width");
-const height = svg.attr("height");
-const margin = { top: 60, right: 80, bottom: 60, left: 150 };
-const innerWidth = width - margin.left - margin.right;
-const innerHeight = height - margin.top - margin.bottom;
-const mainGroup = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")").attr("id", "mainGroup");
-mainGroup.append('g').attr("id", "chart")
-mainGroup.append('g').attr("id", "grid")
-mainGroup.append('g').attr("id", "tick")
-const innerRadius = 180;
-const outerRadius = 450;
-console.log(outerRadius)
-
-let xscale = d3.scaleBand()
-    .range([0, 2 * Math.PI])
-    .align(0);
-
-let yscale = d3.scaleRadial()
-    .range([innerRadius, outerRadius]);
-
-let color = d3.scaleOrdinal(d3.schemeTableau10);
-
-function replaceSpace(s) {
-    return s.replaceAll(" ", "_");
+color = function () {
+  let r = Math.floor(Math.random() * 10);
+  return d3.schemeTableau10[r];
 }
-d3.csv("sales.csv").then(data => {
-    xscale.domain(data.map(function (d) { return d.Year; }));
-    console.log(data)
-    keys = [];
-    labels_gen();
-    // create check box
-    let current_top = 0;
-    let current_left = 0;
-    let ceil = 400;
-    tag_names = data.columns.slice(1);
-    for (let i = 0; i < tag_names.length; i++) {
-        var tick = document.createElement('input');
-        tick.type = 'checkbox';
-        tick.id = 'myCheckbox';
-        tick.name = tag_names[i];
-        tick.value = tag_names[i];
+let number = 0.1291754;
+console.log(number.toFixed(2))
+function draw(filename) {
+  d3.text(filename).then(text => {
+    size = group => group.length; // Given a grouping of words, returns the size factor for that word
+    word = d => d; // Given an item of the data array, returns the word
+    marginTop = 0; // top margin, in pixels
+    marginRight = 0; // right margin, in pixels
+    marginBottom = 0; // bottom margin, in pixels
+    marginLeft = 0; // left margin, in pixels
+    width = 1000; // outer width, in pixels
+    height = 600; // outer height, in pixels
+    maxWords = 200; // maximum number of words to extract from the text
+    fontFamily = "sans-serif"; // font family
+    fontScale = 22; // base font size
+    padding = 2; // amount of padding between the words (in pixels)
+    rotate = d3.randomInt(-30, 30); // a constant or function to rotate the words
 
-        var label = document.createElement('label');
-        label.for = tag_names[i]
-        label.appendChild(document.createTextNode(tag_names[i]));
-        var divcheck = document.createElement('div');
-        divcheck.id = "nation";
+    const words = typeof text === "string" ? text.split(/\W+/g) : Array.from(text);
 
-        divcheck.appendChild(tick);
-        divcheck.appendChild(label);
-        document.getElementById("menu").appendChild(divcheck);
+    const data = d3.rollups(words, size, w => w)
+      .sort(([, a], [, b]) => d3.descending(a, b))
+      .slice(0, maxWords)
+      .map(([key, size]) => ({ text: word(key), size }));
 
-        divcheck.style.position = "absolute";
-        divcheck.style.top = current_top + 'px';
-        divcheck.style.left = current_left + 'px';
-        current_top += 20
-        if (current_top > ceil) {
-            current_top = 0
-            current_left += 200
-        }
-        tick.addEventListener("click", function () {
-            if (keys.includes(this.name)) {
-                let idx = keys.indexOf(this.name);
-                keys.splice(idx, 1);
-            } else {
-                keys.push(this.name);
-            }
-            let stacked = d3.stack().keys(keys)(data);
-            console.log(stacked)
-            maxi = d3.max(stacked[stacked.length - 1], function (d) {
-                return d[1];
-            })
-            update(stacked, maxi);
-            update_grid();
-
-        });
+    let total = 0;
+    for (let i = 0; i < data.length; i++) {
+      total += +data[i].size;
     }
-    function getKeyByValue(object, value) {
-        for (var prop in object) {
-            if (object.hasOwnProperty(prop)) {
-                if (+object[prop] === value) {
-                    if (keys.includes(prop)) {
-                        return prop;
-                    }
+    let curr_font = 0;
+    const svg = d3.select("svg")
+      .attr("viewBox", [0, 0, width, height])
+      .attr("width", width)
+      .attr("font-family", fontFamily)
+      .attr("text-anchor", "middle")
+      .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
 
-                }
+    const g = svg.append("g").attr("transform", `translate(${marginLeft},${marginTop})`);
 
-            }
-        }
-    }
-    let tooltip = d3.select('#container').append("div")
-        .attr("id", "tooltip")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
-    function start(event, d) {
-        console.log(d);
-        let current_data = d.data;
-        let current_val = d[1] - d[0];
-        let current_name = getKeyByValue(current_data, current_val);
-        tooltip.html(current_name).style("opacity", 0);
-        tooltip
-            .style("position", "absolute")
-            .style("background", color(current_name))
-            .style("left", (event.pageX) + "px")
-            .style("top", (event.pageY - 40) + "px")
-            .style("opacity", .9);
+    var cloud = d3.layout.cloud()
+      .size([width - marginLeft - marginRight, height - marginTop - marginBottom])
+      .words(data)
+      .padding(padding)
+      .rotate(rotate)
+      .font(fontFamily)
+      .fontSize(d => Math.sqrt(d.size) * fontScale)
+      .on("word", ({ size, x, y, rotate, text }) => {
+        g.append("text")
+          .attr("font-size", size)
+          .attr("transform", `translate(${x},${y}) rotate(${rotate})`)
+          .text(text)
+          .attr("stroke", "none")
+          .attr("fill", color)
+          .on("mouseover", function (event) {
+            curr_font = + d3.select(this).attr("font-size");
+            d3.select(this).transition().attr("font-size", curr_font + 2);
+            d3.select(this).attr("opacity", 0.8);
+            let val = (curr_font / total * 100).toFixed(2) + "%";
+            tooltip.text(val).style("font-size", "20px").style("stroke-width",2);
+            tooltip
+              .style("position", "absolute")
+              .style("background", "lightsteelblue")
+              .style("left", (event.pageX) + "px")
+              .style("top", (event.pageY - 20) + "px")
+              .style("opacity", .8);
+          })
+          .on("mousemove", function (event) {
+            let val = (curr_font / total * 100).toFixed(2) + "%";
+            tooltip.text(val);
+            tooltip
+              .style("position", "absolute")
+              .style("background", "lightsteelblue")
+              .style("left", (event.pageX) + "px")
+              .style("top", (event.pageY - 20) + "px")
+              .style("opacity", .8);
+          })
+          .on("mouseout", function () {
+            let curr_font = +d3.select(this).attr("font-size");
+            d3.select(this).transition().attr("font-size", curr_font - 2);
+            d3.select(this).attr("opacity", 1);
+            tooltip.style("opacity", 0);
+          });
+      });
 
-    }
-    function end(event, d) {
+    cloud.start();
+  });
+}
 
-        tooltip.html(d3.select(this).attr("id"))
-            .style("opacity", 0);
-    }
-    function update(stacked, maxi) {
-        yscale.domain([0, maxi]);
-        mainGroup.select("#chart")
-            .selectAll("g")
-            .data(stacked)
-            .join('g')
-            .attr("fill", function (d) { return color(d.key); })
-            .selectAll("path")
-            .data(function (d) { return d; })
-            .join("path")
-            .on("mouseover", start)
-            .on("mouseout", end)
-            .transition().duration(1000)
-            .attr("d", d3.arc()
-                .innerRadius(function (d) { return yscale(d[0]); })
-                .outerRadius(function (d) { return yscale(d[1]); })
-                .startAngle(function (d) { return xscale(d.data.Year); })
-                .endAngle(function (d) { return xscale(d.data.Year) + xscale.bandwidth(); })
-                .padAngle(0.01)
-                .padRadius(innerRadius));
-    }
-    function labels_gen() {
-        var label = mainGroup.append("g")
-            .attr("class", "label")
-            .selectAll("g")
-            .data(data)
-            .enter().append("g")
-            .attr("text-anchor", "middle")
-            .attr("transform", function (d) { return "rotate(" + ((xscale(d.Year) + xscale.bandwidth() / 2) * 180 / Math.PI - 90) + ")translate(" + innerRadius + ",0)"; });
+draw("WordCloud_2006.txt");
 
-        label.append("line")
-            .attr("x2", -5)
-            .attr("stroke", "#000");
+let years = [];
+for (let i = 2006; i < 2023; i++) {
+  years.push(i)
+}
+let menu = document.createElement("div");
+menu.id = "menu";
+document.body.appendChild(menu);
+let x = 0;
+let pad = 10;
+let y = 1000;
+menu.style.position = "absolute";
+menu.style.top = y;
 
-        label.append("text")
-            .attr("transform", function (d) { return (xscale(d.Year) + xscale.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,16)" : "rotate(-90)translate(0,-9)"; })
-            .text(function (d) { return d.Year; });
+let tooltip = d3.select('body').append("div")
+  .attr("id", "tooltip")
+  .attr("class", "tooltip")
+  .style("opacity", 0);
 
-        mainGroup.append("circle")
-            .attr("fill", "none")
-            .attr("stroke", "#000")
-            .attr("r", innerRadius);
-    }
-    function update_grid() {
-        console.log(yscale.ticks(5))
-        mainGroup.select("#grid")
-            .attr("class", "grid")
-            .attr("text-anchor", "middle")
-            .selectAll("circle")
-            .data(yscale.ticks(5).slice(1))
-            .join("circle")
-            .attr("class", "grid")
-            .attr("fill", "none")
-            .transition().duration(1000)
-            .attr("r", yscale);
-        mainGroup.select("#tick")
-            .attr("text-anchor", "middle")
-            .selectAll("text")
-            .data(yscale.ticks(5).slice(1))
-            .join("text")
-            .transition().duration(1000)
-            .attr("y", function (d) { return -yscale(d); })
-            .attr("x", 0)
-            .attr("dy", "8px")
-            .text(function (d) { return d; });
-    }
+d3.select("body").append('svg').attr("transform", "translate(20,100)")
 
-
-})
+for (let i = 0; i < years.length; i++) {
+  let bt = document.createElement("button");
+  menu.appendChild(bt);
+  bt.style.width = 50 + 'px';
+  bt.style.position = "absolute";
+  bt.style.left = x + 'px';
+  bt.className = "bt";
+  bt.id = years[i];
+  x += 50 + pad;
+  bt.innerHTML = years[i];
+  bt.addEventListener("click", update);
+}
+function update() {
+  /* let filename = "WordCloud_" + this.id + ".txt";
+  d3.text(filename).then(data => {
+    cloud.words(data)
+  }); */
+  d3.select('svg').selectAll('*').remove();
+  let filename = "WordCloud_" + this.id + ".txt";
+  draw(filename);
+};

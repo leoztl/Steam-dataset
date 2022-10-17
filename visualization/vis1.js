@@ -60,7 +60,7 @@ function ForceGraph({
         .force("center", d3.forceCenter())
         .on("tick", ticked);
 
-    const svg = d3.select("svg")
+    const svg = d3.select("#svg1")
         .attr("width", width)
         .attr("height", height)
         .attr("viewBox", [-width / 2, -height / 2, width, height])
@@ -93,7 +93,7 @@ function ForceGraph({
         .join("text")
         .text(function (d) { return d.id; })
         .call(drag(simulation));
-    let tooltip = d3.select("#menu").append("div")
+    let tooltip = d3.select("#menu1").append("div")
         .attr("id", "tooltip")
         .attr("class", "tooltip")
         .style("opacity", 0)

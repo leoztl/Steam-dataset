@@ -119,7 +119,6 @@ function ForceGraph({
                 connection.push({ "target": target, "value": value, "target_idx": target_idx })
             }
         }
-        console.log(connection)
         tooltip
             /* .style("position", "absolute")
             .style("left", (event.pageX) + "px")

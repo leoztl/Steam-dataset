@@ -111,12 +111,12 @@ function ForceGraph({
                 let target = real_links[i].target;
                 let value = real_links[i].value;
                 let target_idx = 0;
-                for(let j = 0; j < nodes.length;j++){
-                    if(nodes[j].id == target){
+                for (let j = 0; j < nodes.length; j++) {
+                    if (nodes[j].id == target) {
                         target_idx = nodes[j].index;
                     }
                 }
-                connection.push({ "target": target, "value": value, "target_idx":target_idx})
+                connection.push({ "target": target, "value": value, "target_idx": target_idx })
             }
         }
         console.log(connection)
@@ -131,17 +131,17 @@ function ForceGraph({
             .style("color", color(G[index]))
             .append("br")
         let sub = tooltip.select("#display2")
-            .selectAll("span")
+            .selectAll("div")
             .data(connection)
-            .join("span")
+            .join("div")
             .attr("dy", function (d, i) {
                 return 500 * i;
             })
             .attr("dx", 0)
-        sub.append("span").text("Connected to ").style("font-size", "14px")
-        sub.append("span").text(function(d){return d.target}).style("font-size", "14px").style("color", function(d){return color(G[d.target_idx])})
-        sub.append("span").text(" ; Value: ").style("font-size", "14px")
-        sub.append("span").text(function(d){return d.value}).style("font-size", "14px").style("color", function(d){return color(G[d.target_idx])})
+        sub.append("span").attr("class", "temp").text("Connected to ").style("font-size", "14px");
+        sub.append("span").attr("class", "temp").text(function (d) { return d.target }).style("font-size", "14px").style("color", function (d) { return color(G[d.target_idx]) });
+        sub.append("span").attr("class", "temp").text(" ; Value: ").style("font-size", "14px");
+        sub.append("span").attr("class", "temp").text(function (d) { return d.value }).style("font-size", "14px").style("color", function (d) { return color(G[d.target_idx]) })
             .append('br');
     }
     if (W) link.attr("stroke-width", ({ index: i }) => W[i]);

@@ -1,16 +1,16 @@
-const svg = d3.select('svg');
-const width = svg.attr("width");
-const height = svg.attr("height");
-const margin = { top: 60, right: 80, bottom: 60, left: 150 };
-const innerWidth = width - margin.left - margin.right;
-const innerHeight = height - margin.top - margin.bottom;
-const mainGroup = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")").attr("id", "mainGroup");
+const svg4 = d3.select('#svg4');
+const width4 = svg4.attr("width");
+const height4 = svg4.attr("height");
+const margin4 = { top: 60, right: 80, bottom: 60, left: 150 };
+const innerWidth4 = width4 - margin4.left - margin4.right;
+const innerHeight4 = height4 - margin4.top - margin4.bottom;
+const mainGroup4 = svg4.append("g").attr("transform", "translate(" + margin4.left + "," + margin4.top + ")").attr("id", "mainGroup");
 
 //define scales
-let xscale = d3.scaleTime().range([0, innerWidth]),
-    yscale = d3.scaleLinear().range([innerHeight, 0]),
+let xscale4 = d3.scaleTime().range([0, innerWidth]),
+    yscale4 = d3.scaleLinear().range([innerHeight4, 0]),
     //color scale
-    color = d3.scaleOrdinal(d3.schemeTableau10);
+    color4 = d3.scaleOrdinal(d3.schemeTableau10);
 
 //define line generator
 let line = d3.line()
@@ -29,7 +29,7 @@ d3.csv("rate.csv").then(data => {
     data.forEach(function (d) {
         d.Year = d3.timeParse("%Y")(d.Year);
     })
-    var tags = data.columns.slice(1).map(function (id) {
+    var tags4 = data.columns.slice(1).map(function (id) {
         return {
             id: id.replaceAll(" ", "_"),
             values: data.map(function (d) {
@@ -41,51 +41,51 @@ d3.csv("rate.csv").then(data => {
             })
         }
     })
-    console.log(tags)
+    console.log(tags4)
     let tag_id = [];
-    for (const i in tags) {
-        tag_id.push(tags[i].id);
+    for (const i in tags4) {
+        tag_id.push(tags4[i].id);
     }
     //define x axis
-    xscale.domain(d3.extent(data, function (d) {
+    xscale4.domain(d3.extent(data, function (d) {
         return d.Year;
     }));
-    yscale.domain([
-        d3.min(tags, function (c) {
+    yscale4.domain([
+        d3.min(tags4, function (c) {
             return d3.min(c.values, function (d) {
                 return d.val;
             });
         }),
-        d3.max(tags, function (c) {
+        d3.max(tags4, function (c) {
             return d3.max(c.values, function (d) {
                 return d.val;
             });
         })
     ]);
     //define color scale
-    color.domain(tags.map(function (c) {
+    color.domain(tags4.map(function (c) {
         return tag_id.indexOf(c.id);
     }));
-    var yaxis = d3.axisLeft(yscale);
-    var xaxis = d3.axisBottom(xscale);
-    const xAxisGrid = d3.axisBottom(xscale).tickSize(-innerHeight).tickFormat('');
-    const yAxisGrid = d3.axisLeft(yscale).tickSize(-innerWidth).tickFormat('');
+    var yaxis4 = d3.axisLeft(yscale4);
+    var xaxis4 = d3.axisBottom(xscale4);
+    const xAxisGrid4 = d3.axisBottom(xscale4).tickSize(-innerHeight4).tickFormat('');
+    const yAxisGrid4 = d3.axisLeft(yscale4).tickSize(-innerWidth4).tickFormat('');
     // append x grid
     mainGroup.append('g')
         .attr('class', 'grid')
-        .attr('transform', 'translate(0,' + innerHeight + ')')
-        .call(xAxisGrid);
+        .attr('transform', 'translate(0,' + innerHeight4 + ')')
+        .call(xAxisGrid4);
     // append y grid
     mainGroup.append('g')
         .attr('class', 'grid')
-        .call(yAxisGrid);
+        .call(yAxisGrid4);
     // append xaxis
     mainGroup.append('g')
         .attr("class", "xaxis")
-        .attr("transform", "translate(0," + innerHeight + ")")
-        .call(xaxis)
+        .attr("transform", "translate(0," + innerHeight4 + ")")
+        .call(xaxis4)
         .append("text")
-        .attr("transform", "translate(" + innerWidth + ",0)")
+        .attr("transform", "translate(" + innerWidth4 + ",0)")
         .attr("dy", "40")
         .attr("fill", "#000")
         .attr("font-size", "20px")
@@ -93,7 +93,7 @@ d3.csv("rate.csv").then(data => {
     // append yaxis
     mainGroup.append('g')
         .attr("class", "yaxis")
-        .call(yaxis)
+        .call(yaxis4)
         .append("text")
         .attr("dx", "-40")
         .attr("fill", "#000")
@@ -131,7 +131,7 @@ d3.csv("rate.csv").then(data => {
             .style("opacity", 0);
     }
     let tag = mainGroup.selectAll(".tag")
-        .data(tags)
+        .data(tags4)
         .enter()
         .append("g")
         .attr("class", "tag")
@@ -150,7 +150,7 @@ d3.csv("rate.csv").then(data => {
     var longE = function (d) { return d.value.Year.length };
 
     // append country labels to svg
-    tag.append("text")
+    tag4.append("text")
         .datum(function (d) { return { id: d.id, value: d.values[d.values.length - 1] }; })
         .attr("transform", function (d) { return "translate(" + xscale(d.value.Year) + "," + yscale(d.value.val) + ")"; })
         .attr("x", 3)

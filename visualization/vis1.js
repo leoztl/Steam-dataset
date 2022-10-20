@@ -98,7 +98,7 @@ d3.csv("sales.csv").then(data => {
         let current_data = d.data;
         let current_val = d[1] - d[0];
         let current_name = getKeyByValue(current_data, current_val);
-        tooltip.html(current_name).style("opacity", 0);
+        tooltip.html(current_name+"<br>"+current_val);
         tooltip
             .style("position", "absolute")
             .style("background", color(current_name))

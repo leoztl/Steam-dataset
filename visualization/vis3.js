@@ -59,24 +59,24 @@ function draw(filename) {
             curr_font = + d3.select(this).attr("font-size");
             d3.select(this).transition().attr("font-size", curr_font + 2);
             d3.select(this).attr("opacity", 0.8);
-            let val = (curr_font / total * 100).toFixed(2) + "%";
+            /* let val = (curr_font / total * 100).toFixed(2) + "%";
             tooltip.text(val).style("font-size", "20px").style("stroke-width",2);
             tooltip
               .style("position", "absolute")
               .style("background", "lightsteelblue")
               .style("left", (event.pageX) + "px")
               .style("top", (event.pageY - 20) + "px")
-              .style("opacity", .8);
+              .style("opacity", .8); */
           })
           .on("mousemove", function (event) {
-            let val = (curr_font / total * 100).toFixed(2) + "%";
+            /* let val = (curr_font / total * 100).toFixed(2) + "%";
             tooltip.text(val);
             tooltip
               .style("position", "absolute")
               .style("background", "lightsteelblue")
               .style("left", (event.pageX) + "px")
               .style("top", (event.pageY - 20) + "px")
-              .style("opacity", .8);
+              .style("opacity", .8); */
           })
           .on("mouseout", function () {
             let curr_font = +d3.select(this).attr("font-size");

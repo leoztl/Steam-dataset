@@ -101,9 +101,14 @@ function ForceGraph({
     tooltip.append("span").attr("id", "node");
     tooltip.append("span").attr("id", "nodevalue");
     tooltip.append("g").attr("id", "display2");
+    let current_node = "";
     function start(event, d) {
         console.log(d)
-        console.log(nodes)
+        if(tooltip.style("opacity")!= 0 && current_node == d.id){
+            tooltip.style("opacity", 0);
+            return;
+        }
+        current_node = d.id;
         let index = d.index;
         connection = [];
         for (let i = 0; i < real_links.length; i++) {

@@ -2,8 +2,7 @@ color = function () {
   let r = Math.floor(Math.random() * 10);
   return d3.schemeTableau10[r];
 }
-let number = 0.1291754;
-console.log(number.toFixed(2))
+let current_bt = null;
 function draw(filename) {
   d3.text(filename).then(text => {
     size = group => group.length; // Given a grouping of words, returns the size factor for that word
@@ -118,17 +117,26 @@ for (let i = 0; i < years.length; i++) {
   bt.style.width = 50 + 'px';
   bt.style.position = "absolute";
   bt.style.left = x + 'px';
+  bt.style.border = 1 + "px";
+  bt.style.background = "lightgray"
   bt.className = "bt";
   bt.id = years[i];
+
   x += 50 + pad;
   bt.innerHTML = years[i];
   bt.addEventListener("click", update);
 }
-function update() {
+
+function update(e) {
   /* let filename = "WordCloud_" + this.id + ".txt";
   d3.text(filename).then(data => {
     cloud.words(data)
   }); */
+  if(current_bt != null){
+    current_bt.style.background = "lightgray";
+  }
+  this.style.background = "lightsteelblue";
+  current_bt = this;
   d3.select('svg').selectAll('*').remove();
   let filename = "WordCloud_" + this.id + ".txt";
   draw(filename);

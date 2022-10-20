@@ -1,220 +1,208 @@
-const svg = d3.select('svg');
-const width = svg.attr("width");
-const height = svg.attr("height");
-const margin = { top: 60, right: 80, bottom: 60, left: 150 };
-const innerWidth = width - margin.left - margin.right;
-const innerHeight = height - margin.top - margin.bottom;
-const mainGroup = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")").attr("id", "mainGroup");
+// Copyright 2021 Observable, Inc.
+// Released under the ISC license.
+// https://observablehq.com/@d3/force-directed-graph
+function ForceGraph({
+    nodes, // an iterable of node objects (typically [{id}, …])
+    links // an iterable of link objects (typically [{source, target}, …])
+}, {
+    nodeId = d => d.id, // given d in nodes, returns a unique identifier (string)
+    nodeGroup, // given d in nodes, returns an (ordinal) value for color
+    nodeGroups, // an array of ordinal values representing the node groups
+    nodeTitle, // given d in nodes, a title string
+    nodeFill = "currentColor", // node stroke fill (if not using a group color encoding)
+    nodeStroke = "#fff", // node stroke color
+    nodeStrokeWidth = 1.5, // node stroke width, in pixels
+    nodeStrokeOpacity = 1, // node stroke opacity
+    nodeRadius = 10, // node radius, in pixels
+    nodeStrength,
+    linkSource = ({ source }) => source, // given d in links, returns a node identifier string
+    linkTarget = ({ target }) => target, // given d in links, returns a node identifier string
+    linkStroke = "#999", // link stroke color
+    linkStrokeOpacity = 0.1, // link stroke opacity
+    linkStrokeWidth = 2, // given d in links, returns a stroke width in pixels
+    linkStrokeLinecap = "round", // link stroke linecap
+    linkStrength,
+    colors = d3.schemeTableau10, // an array of color strings, for the node groups
+    width = 1000, // outer width, in pixels
+    height = 1000, // outer height, in pixels
+    invalidation // when this promise resolves, stop the simulation
+} = {}) {
+    let real_links = links;
+    // Compute values.
+    const N = d3.map(nodes, nodeId).map(intern);
+    const LS = d3.map(links, linkSource).map(intern);
+    const LT = d3.map(links, linkTarget).map(intern);
+    if (nodeTitle === undefined) nodeTitle = (_, i) => N[i];
+    const T = nodeTitle == null ? null : d3.map(nodes, nodeTitle);
+    const G = nodeGroup == null ? null : d3.map(nodes, nodeGroup).map(intern);
+    const W = typeof linkStrokeWidth !== "function" ? null : d3.map(links, linkStrokeWidth);
+    const L = typeof linkStroke !== "function" ? null : d3.map(links, linkStroke);
 
-//define scales
-let xscale = d3.scaleTime().range([0, innerWidth]),
-    yscale = d3.scaleLinear().range([innerHeight, 0]),
-    //color scale
-    color = d3.scaleOrdinal(d3.schemeTableau10);
+    // Replace the input nodes and links with mutable objects for the simulation.
+    nodes = d3.map(nodes, (_, i) => ({ id: N[i] }));
+    links = d3.map(links, (_, i) => ({ source: LS[i], target: LT[i] }));
 
-//define line generator
-let line = d3.line()
-    .curve(d3.curveBasis)
-    .x(function (d) {
-        return xscale(d.Year);
-    })
-    .y(function (d) {
-        return yscale(d.val);
-    });
-function hasWhiteSpace(s) {
-    return s.indexOf(' ') >= 0;
-}
-d3.csv("rate.csv").then(data => {
-    console.log(data)
-    data.forEach(function (d) {
-        d.Year = d3.timeParse("%Y")(d.Year);
-    })
-    var tags = data.columns.slice(1).map(function (id) {
-        return {
-            id: id.replaceAll(" ", "_"),
-            values: data.map(function (d) {
-                return {
-                    Year: d.Year,
-                    val: +d[id]
+    // Compute default domains.
+    if (G && nodeGroups === undefined) nodeGroups = d3.sort(G);
 
-                };
-            })
-        }
-    })
-    console.log(tags)
-    let tag_id = [];
-    for (const i in tags) {
-        tag_id.push(tags[i].id);
-    }
-    //define x axis
-    xscale.domain(d3.extent(data, function (d) {
-        return d.Year;
-    }));
-    yscale.domain([
-        d3.min(tags, function (c) {
-            return d3.min(c.values, function (d) {
-                return d.val;
-            });
-        }),
-        d3.max(tags, function (c) {
-            return d3.max(c.values, function (d) {
-                return d.val;
-            });
-        })
-    ]);
-    //define color scale
-    color.domain(tags.map(function (c) {
-        return tag_id.indexOf(c.id);
-    }));
-    var yaxis = d3.axisLeft(yscale);
-    var xaxis = d3.axisBottom(xscale);
-    const xAxisGrid = d3.axisBottom(xscale).tickSize(-innerHeight).tickFormat('');
-    const yAxisGrid = d3.axisLeft(yscale).tickSize(-innerWidth).tickFormat('');
-    // append x grid
-    mainGroup.append('g')
-        .attr('class', 'grid')
-        .attr('transform', 'translate(0,' + innerHeight + ')')
-        .call(xAxisGrid);
-    // append y grid
-    mainGroup.append('g')
-        .attr('class', 'grid')
-        .call(yAxisGrid);
-    // append xaxis
-    mainGroup.append('g')
-        .attr("class", "xaxis")
-        .attr("transform", "translate(0," + innerHeight + ")")
-        .call(xaxis)
-        .append("text")
-        .attr("transform", "translate(" + innerWidth + ",0)")
-        .attr("dy", "40")
-        .attr("fill", "#000")
-        .attr("font-size", "20px")
-        .text("Year");
-    // append yaxis
-    mainGroup.append('g')
-        .attr("class", "yaxis")
-        .call(yaxis)
-        .append("text")
-        .attr("dx", "-40")
-        .attr("fill", "#000")
-        .attr("font-size", "20px")
-        .text("Rating");
+    // Construct the scales.
+    const color = nodeGroup == null ? null : d3.scaleOrdinal(nodeGroups, colors);
 
-    let tooltip = d3.select('#container').append("div")
+    // Construct the forces.
+    const forceNode = d3.forceManyBody();
+    const forceLink = d3.forceLink(links).id(({ index: i }) => N[i]);
+    if (nodeStrength !== undefined) forceNode.strength(nodeStrength);
+    if (linkStrength !== undefined) forceLink.strength(linkStrength);
+
+    const simulation = d3.forceSimulation(nodes)
+        .force("link", forceLink)
+        .force("charge", forceNode)
+        .force("center", d3.forceCenter())
+        .on("tick", ticked);
+
+    const svg = d3.select("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("viewBox", [-width / 2, -height / 2, width, height])
+        .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+
+    const link = svg.append("g")
+        .attr("stroke", typeof linkStroke !== "function" ? linkStroke : null)
+        .attr("stroke-opacity", linkStrokeOpacity)
+        .attr("stroke-width", typeof linkStrokeWidth !== "function" ? linkStrokeWidth : null)
+        .attr("stroke-linecap", linkStrokeLinecap)
+        .selectAll("line")
+        .data(links)
+        .join("line");
+
+    const node = svg.append("g")
+        .attr("fill", nodeFill)
+        .attr("stroke", nodeStroke)
+        .attr("stroke-opacity", nodeStrokeOpacity)
+        .attr("stroke-width", nodeStrokeWidth)
+        .selectAll("circle")
+        .data(nodes)
+        .join("circle")
+        .attr("r", nodeRadius)
+        .call(drag(simulation))
+        .on("click", start);
+
+    const text = svg.append("g")
+        .selectAll("text")
+        .data(nodes)
+        .join("text")
+        .text(function (d) { return d.id; })
+        .call(drag(simulation));
+    let tooltip = d3.select("#menu").append("div")
         .attr("id", "tooltip")
         .attr("class", "tooltip")
-        .style("opacity", 0);
+        .style("opacity", 0)
+        .style("background", "white");
+    tooltip.append("span").attr("id", "node");
+    tooltip.append("span").attr("id", "nodevalue");
+    tooltip.append("g").attr("id", "display2");
     function start(event, d) {
-        op = d3.select(this).attr('opacity')
-        if (op != 0) {
-            d3.select(this)
-                .attr('opacity', 0.85)
-                .attr("stroke-width", 4);
+        console.log(d)
+        console.log(nodes)
+        let index = d.index;
+        connection = [];
+        for (let i = 0; i < real_links.length; i++) {
+            if (real_links[i].source == d.id) {
+                let target = real_links[i].target;
+                let value = real_links[i].value;
+                let target_idx = 0;
+                for (let j = 0; j < nodes.length; j++) {
+                    if (nodes[j].id == target) {
+                        target_idx = nodes[j].index;
+                    }
+                }
+                connection.push({ "target": target, "value": value, "target_idx": target_idx })
+            }
         }
-        tooltip.html(d3.select(this).attr("id").slice(5).replaceAll("_", " ") + "<br>" + yscale.invert(event.pageY - margin.top - 8));
+        tooltip.select("#display2").selectAll('*').remove();
         tooltip
-            .style("position", "absolute")
-            .style("background", color(d3.select(this).attr("id").slice(5)))
-            .style("left", (event.pageX) + "px")
-            .style("top", (event.pageY - 40) + "px")
-            .style("opacity", .8);
+            .style("opacity", .9);
+        tooltip.select("#node").text("Node name: ").style("font-size", "14px")
+        tooltip.select("#nodevalue").text(d.id)
+            .style("font-size", "14px")
+            .style("color", color(G[index]))
+            .append("br")
+        let sub = tooltip.select("#display2")
+            .selectAll("div")
+            .data(connection)
+            .join("div")
+            .attr("dy", function (d, i) {
+                return 500 * i;
+            })
+            .attr("dx", 0)
+        sub.append("span").attr("class", "temp").text("Connected to ").style("font-size", "14px");
+        sub.append("span").attr("class", "temp").text(function (d) { return d.target }).style("font-size", "14px").style("color", function (d) { return color(G[d.target_idx]) });
+        sub.append("span").attr("class", "temp").text(" ; Value: ").style("font-size", "14px");
+        sub.append("span").attr("class", "temp").text(function (d) { return d.value }).style("font-size", "14px").style("color", function (d) { return color(G[d.target_idx]) })
+            .append('br');
     }
-    function end(event, d) {
-        op = d3.select(this).attr('opacity')
-        if (op != 0) {
-            op = 1
-            d3.select(this)
-                .attr('opacity', 1)
-                .attr("stroke-width", 2);
-        }
-        tooltip.html(d3.select(this).attr("id"))
-            .style("opacity", 0);
+    if (W) link.attr("stroke-width", ({ index: i }) => W[i]);
+    if (L) link.attr("stroke", ({ index: i }) => L[i]);
+    if (G) node.attr("fill", ({ index: i }) => color(G[i]));
+    if (G) text.attr("fill", ({ index: i }) => color(G[i]));
+    if (T) node.append("title").text(({ index: i }) => T[i]);
+    if (invalidation != null) invalidation.then(() => simulation.stop());
+
+    function intern(value) {
+        return value !== null && typeof value === "object" ? value.valueOf() : value;
     }
-    let tag = mainGroup.selectAll(".tag")
-        .data(tags)
-        .enter()
-        .append("g")
-        .attr("class", "tag")
-    tag.append("path")
-        .attr("class", "line")
-        .attr("fill", "none")
-        .attr("opacity", 0)
-        .attr("stroke-width", 0)
-        .attr('id', function (d) { return 'line-' + d.id })
-        .attr("d", function (d) { return line(d.values); })
-        .style("stroke", function (d) { return color(d.id); })
-        .on('mouseover', start)
-        .on('mouseout', end)
 
-    var longY = function (d) { return d.value.Year.length };
-    var longE = function (d) { return d.value.Year.length };
+    function ticked() {
+        factor = 4
+        link
+            .attr("x1", d => factor * d.source.x)
+            .attr("y1", d => factor * d.source.y)
+            .attr("x2", d => factor * d.target.x)
+            .attr("y2", d => factor * d.target.y);
 
-    // append country labels to svg
-    tag.append("text")
-        .datum(function (d) { return { id: d.id, value: d.values[d.values.length - 1] }; })
-        .attr("transform", function (d) { return "translate(" + xscale(d.value.Year) + "," + yscale(d.value.val) + ")"; })
-        .attr("x", 3)
-        .attr('id', function (d) { return 'text-' + d.id })
-        .attr("dy", "0.35em")
-        .style("font", "11px sans-serif")
-        .attr("opacity", 0)
-        .text(function (d) { return d.id.replaceAll("_", " "); });
+        node
+            .attr("cx", d => factor * d.x)
+            .attr("cy", d => factor * d.y);
 
-    let current_top = 0
-    let current_left = 0
-    let ceil = 400
-    for (let i = 0; i < tags.length; i++) {
-        var tick = document.createElement('input');
-        tick.type = 'checkbox';
-        tick.id = 'myCheckbox';
-        tick.name = tags[i].id;
-        tick.value = tags[i].id;
+        text
+            .attr("x", d => factor * d.x)
+            .attr("y", d => factor * d.y)
+            .attr("dx", -20)
+            .attr("dy", 20);
+    }
 
-        var label = document.createElement('label');
-        label.for = tags[i].id.replaceAll("_", " ")
-        label.appendChild(document.createTextNode(tags[i].id.replaceAll("_", " ")));
-        var divcheck = document.createElement('div');
-        divcheck.id = "nation";
-        // tick.appendChild(document.createTextNode(tags[i].id));
-        divcheck.appendChild(tick);
-        divcheck.appendChild(label);
-        document.getElementById("menu").appendChild(divcheck);
-
-        divcheck.style.position = "absolute";
-        divcheck.style.top = current_top + 'px';
-        divcheck.style.left = current_left + 'px';
-        current_top += 20
-        if (current_top > ceil) {
-            current_top = 0
-            current_left += 200
+    function drag(simulation) {
+        function dragstarted(event) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            event.subject.fx = event.subject.x;
+            event.subject.fy = event.subject.y;
         }
 
-        tick.addEventListener("click", function () {
+        function dragged(event) {
+            event.subject.fx = event.x;
+            event.subject.fy = event.y;
+        }
 
-            var lineSelected = this.value;
-            var svgline = d3.select('#line-' + lineSelected);
-            var textline = d3.select('#text-' + lineSelected);
-            console.log(svgline);
-            console.log(textline);
+        function dragended(event) {
+            if (!event.active) simulation.alphaTarget(0);
+            event.subject.fx = null;
+            event.subject.fy = null;
+        }
 
-            if (svgline.attr('opacity') === '0') {
-                // console.log('making it visible');
-                svgline.attr('opacity', 1);
-                svgline.attr('stroke-width', 2);
-            } else {
-                svgline.attr('opacity', 0);
-                svgline.attr('stroke-width', 0);
-            }
-
-            if (textline.attr('opacity') === '0') {
-                // console.log('making it visible');
-                textline.attr('opacity', 1);
-            } else {
-                textline.attr('opacity', 0);
-            }
-            this.style.background = '#555';
-            this.style.color = 'white';
-
-        });
+        return d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended);
     }
-})
+
+    return Object.assign(svg.node(), { scales: { color } });
+};
+d3.json("vis4.json").then(data => {
+    chart = ForceGraph(data, {
+        nodeId: (d) => d.id,
+        nodeGroup: (d) => d.group,
+        linkStrokeWidth: (l) => Math.sqrt(l.value),
+        width: 1400,
+        height: 1000,
+    })
+});

@@ -49,6 +49,7 @@ d3.csv("sales.csv").then(data => {
 
         divcheck.appendChild(tick);
         divcheck.appendChild(label);
+        console.log(divcheck)
         document.getElementById("#menu3").appendChild(divcheck);
 
         divcheck.style.position = "absolute";
